@@ -1,0 +1,198 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+  <div class="row">
+    <h3 class="fw-semibold mb-4 mt-5">{{competition.title|safe}}</h3>
+    <div class="col-sm-6 col-xl-12">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">{{competition.description|safe}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <h5 class="fw-semibold mb-4 mt-5">Sizning natijangiz</h5>
+      {% if not user.is_authenticated %}
+      <div class="col-sm-6 col-xl-12 d-flex align-items-stretch">
+          <div class="card w-100">
+            <div class="card-body p-4 text-center">
+              <p class="text-center p-0 m-0">Natijangizni ko'rish uchun hisobingizni faollashtiring</p>
+              <a href="{% url 'login' %}" class="btn btn-primary mt-4">
+                <span style="margin-right: 5px;">
+                  <i class="ti ti-user-circle"></i>
+                </span>
+                Kirish
+              </a>
+            </div>
+          </div>
+      </div>
+      {% elif user.is_authenticated %}
+        {% if user_score is not None %}
+        <div class="col-sm-6 col-xl-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="row alig n-items-start">
+                <div class="col-8">
+                  <h1 class="fw-semibold mb-9">{{user_score.rank}}</h1>
+                  <h5 class="card-titlefw-semibold">Reyting</h5>
+                </div>
+                <div class="col-4">
+                  <div class="d-flex justify-content-end">
+                    <div class="text-white bg-success rounded-circle p-6 d-flex align-items-center justify-content-center">
+                      <i class="ti ti-medal fs-6"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="row alig n-items-start">
+                <div class="col-8">
+                  <h1 class="fw-semibold mb-9">{{user_score.accuracy}}%</h1>
+                  <h5 class="card-titlefw-semibold">Aniqlik</h5>
+                </div>
+                <div class="col-4">
+                  <div class="d-flex justify-content-end">
+                    <div class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
+                      <i class="ti ti-chart-pie fs-6"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="row alig n-items-start">
+                <div class="col-8">
+                  <h1 class="fw-semibold mb-9">{{user_score.score}}</h1>
+                  <h5 class="card-titlefw-semibold">Ochkolar</h5>
+                </div>
+                <div class="col-4">
+                  <div class="d-flex justify-content-end">
+                    <div class="text-white bg-info rounded-circle p-6 d-flex align-items-center justify-content-center">
+                      <i class="ti ti-checks fs-6"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <a href="#" class="btn btn-primary">Batafsil</a>
+        </div>
+        {% else %}
+        <div class="col-sm-6 col-xl-12 d-flex align-items-stretch">
+          <div class="card w-100">
+            <div class="card-body p-4 text-center">
+              <p class="text-center p-0 m-0">Olimpiadada qatnashish uchun fanlardan birini tanlang</p>
+              <div class="mt-4">
+                {% for subject in subjects %}
+                <a href="{% url 'attempt' competition_id=competition.id subject_name=subject.name %}" class="btn btn-primary mx-2 mb-3">
+                  <span style="margin-right: 6px;">
+                    <i class="ti ti-player-play"></i>
+                  </span>
+                  {{subject.name}}
+                </a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endif %}
+  </div>
+  <div class="row">
+      <h5 class="fw-semibold mb-4 mt-5">Barcha natijalar</h5>
+      <div class="col-sm-6 col-xl-12 d-flex align-items-stretch">
+          <div class="card w-100">
+            <div class="card-body p-4">
+              <div class="d-sm-flex d-block align-items-center justify-content-between">
+                <div class="w-100 mb-5">
+                  <form action="" class="d-flex d-block align-items-center justify-content-between">
+                      <input class="form-control" placeholder="Ism yoki familiyani kiriting"/>
+                      <button type="submit" class="btn btn-primary mx-3 d-flex d-block align-items-center justify-content-between">
+                          <span style="margin-right: 10px;">
+                              <i class="ti ti-search"></i>
+                          </span>
+                          Qidirish
+                      </button>
+                  </form>
+                </div>
+                <div class="mb-5 mx-2 w-100">
+                  <select class="form-select">
+                    {% for grade in grades %}
+                      <option value={{grade.id}}>{{grade.name}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="mb-5 w-100">
+                  <select class="form-select">
+                    {% for subject in subjects %}
+                      <option value={{subject.id}}>{{subject.name}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              {% if users %}
+              <div class="table-responsive mb-5">
+                <table class="table text-nowrap mb-0 align-middle">
+                  <thead class="text-dark fs-4">
+                    <tr>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0"></h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">O'quvchi</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">O'quv muassasa</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Sinf</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Ochkolar</h6>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for user in users %}
+                    <tr>
+                      <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{forloop.counter}}</h6></td>
+                      <td class="border-bottom-0">
+                          <h6 class="fw-semibold mb-1">{{user.first_name}} {{user.last_name}}</h6>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{user.institution.name}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <div class="d-flex align-items-center gap-2">
+                          <span class="badge bg-success rounded-3 fw-semibold">{{user.grade.name}}</span>
+                        </div>
+                      </td>
+                      <td class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0 fs-4">{{user.score}}</h6>
+                      </td>
+                    </tr>                
+                    {% endfor %}     
+                  </tbody>
+                </table>
+              </div>
+              {% elif not users %}
+              <p class="text-center">Natijalar qayd etilmagan</p>
+              {% endif %}
+            </div>
+          </div>
+      </div>
+  </div>
+{% endblock content %}

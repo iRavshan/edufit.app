@@ -1,0 +1,23 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %} Edufit {% endblock %}</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/images/logos/favicon/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/logos/favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/logos/favicon/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'assets/images/logos/favicon/site.webmanifest' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}"/>
+</head>
+<body>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    {% block content %} {% endblock %}
+  </div>
+  <script src="{% static 'assets/libs/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/test.js' %}"></script>
+</body>
+</html>

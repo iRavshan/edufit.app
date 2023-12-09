@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<div class="row">
+    <h5 class="fw-semibold mb-4 mt-5">Olimpiadalar</h5>
+    <div class="col-sm-6 col-xl-12">
+      {% if competitions %}
+        {% for competition in competitions %}
+        <div class="card">
+          <div class="card-body">
+            <h5 class="fw-semibold fs-4"><a href="{% url 'competition' competition.id %}">{{competition.title|safe}}</a></h5>
+            <p class="card-text">{{competition.subtitle}}</p>
+            <a href="{% url 'competition' competition.id  %}" class="btn btn-primary">Ishtirok etish</a>
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+</div>
+{% endblock content %}

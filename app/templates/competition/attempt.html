@@ -1,0 +1,46 @@
+{% extends 'emptyLayout.html' %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center w-100">
+        <div class="row justify-content-center w-100">
+            <div class="col-md-8 col-lg-6 col-xxl-6">
+                <div class="card">
+                    <div class="top-line"></div>
+                    <div class="card-body">
+                        <h2>{{competition.title|safe}}</h2>
+                        <h6>{{competition.subtitle}}</h6>
+                    </div>
+                </div>
+                {% if questions %}
+                <form action="{% url 'finish_attempt' attempt_id %}" method="post" id="answersForm">
+                    {% for question in questions %}
+                    {% csrf_token %}
+                    <div class="card mt-0 mb-4 question-card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <h5 class="fs-5" style="margin-right: 10px;">{{forloop.counter}}. <h5/>
+                                <h5 class="fs-5" style="margin-bottom: 40px;">{{question.text|safe}}</h5>
+                            </div>
+                            {% for option in question.options %}
+                            <div class="form-check" style="margin-bottom: 25px;">
+                                <input type="radio" class="form-check-input fs-4" id={{option.id}} value={{option.id}} name={{question.id}}/>
+                                <label class="form-check-label fs-4" for={{option.id}}>{{option.text|safe}}</label>
+                            </div> 
+                            {% endfor %}       
+                        </div>
+                    </div>
+                    {% endfor %} 
+                    <input type="text" id="answers" name="selectedOptions">
+                    <button type="submit" type="submit" hidden></button>           
+                </form>
+                <div class="card w-50">
+                    <button class="btn btn-primary py-8 fs-4" onclick="FinishAttempt()">Testni yakunlash</button>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
