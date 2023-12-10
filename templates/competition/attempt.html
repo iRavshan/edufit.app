@@ -20,8 +20,8 @@
                     <div class="card mt-0 mb-4 question-card">
                         <div class="card-body">
                             <div class="d-flex">
-                                <h5 class="fs-5" style="margin-right: 10px;">{{forloop.counter}}. <h5/>
-                                <h5 class="fs-5" style="margin-bottom: 40px;">{{question.text|safe}}</h5>
+                                <h5 class="fs-5" style="margin-right: 10px; line-height: 1.8;"">{{forloop.counter}}. <h5/>
+                                <h5 class="fs-5" style="margin-bottom: 24px; line-height: 1.8;">{{question.text|safe}}</h5>
                             </div>
                             {% for option in question.options %}
                             <div class="form-check" style="margin-bottom: 25px;">

@@ -93,7 +93,7 @@ def FinishAttempt(request, attempt_id):
         for selectedOption in selectedOptions:
             option = Option.objects.get(id=selectedOption)
             attempt.options.add(option)
-            if(option.is_correct):
+            if(option.is_correct == True):
                 score += 1
         attempt.score = score
         attempt.save()
