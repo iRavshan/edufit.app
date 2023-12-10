@@ -18,7 +18,7 @@ SESSION_COOKIE_SECURE = True
 
 CSRF_COOKIE_SECURE = True
 
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://edufit.up.railway.app']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
