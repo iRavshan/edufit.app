@@ -1,13 +1,12 @@
-FROM python:3.10.8
+FROM python:3.9
 
-WORKDIR /code
+WORKDIR /app
 
-COPY ./requirements.txt /code/requirements.txt
+COPY . /app
 
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ./app /code/app
+EXPOSE 80
 
-# runs the production server
-ENTRYPOINT ["python", "mysite/manage.py"]
+ENTRYPOINT ["python", "app/manage.py"]
 CMD ["runserver", "0.0.0.0:8000"]
