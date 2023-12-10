@@ -45,7 +45,7 @@ class Option(models.Model):
 
 class Attempt(models.Model):
     user = models.ForeignKey(CustomUser, null=False, on_delete=models.CASCADE)
-    options = models.ManyToManyField(Option, null=True)
+    options = models.ManyToManyField(Option)
     started_at = models.DateTimeField(default=datetime.now, null=False)
     finished = models.BooleanField(default=False, null=False)
     finished_at = models.DateTimeField(null=True)
