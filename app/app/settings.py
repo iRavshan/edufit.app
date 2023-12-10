@@ -6,18 +6,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 dotenv_file = os.path.join(BASE_DIR, ".env")
 
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
+dotenv.load_dotenv(dotenv_file)
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'R$2aL9p!Qs6w#8h*3vF5nU7tG@4i%Y0oR$2aL9p!Qs6w#8h*3vF5nU7tG@4i%Y0o'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['*']
 
 SESSION_COOKIE_SECURE = True
 
 CSRF_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -63,19 +64,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'app.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'bA4C1AcF55ff4DC2bg*5bdf5Da5a5*C6',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': 28224
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -92,6 +91,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'user.CustomUser'
+
 LANGUAGE_CODE = 'uz-UZ'
 
 TIME_ZONE = 'Asia/Tashkent'
@@ -103,6 +104,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] 
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-AUTH_USER_MODEL = 'user.CustomUser'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
