@@ -13,5 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 80
 
 
-ENTRYPOINT ["python", "app/manage.py"]
+ENTRYPOINT ["python", "./manage.py"]
 CMD ["runserver", "0.0.0.0:8000"]
