@@ -1,0 +1,44 @@
+{% extends 'emptyLayout.html' %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center w-100">
+        <div class="row justify-content-center w-100">
+            <div class="col-md-8 col-lg-6 col-xxl-6">
+                <div class="card">
+                    <div class="top-line"></div>
+                    <div class="card-body">
+                        <h2>{{competition.title|safe}}</h2>
+                        <h6 class="mb-5">{{competition.subtitle}}</h6>
+                        <h5>{{user.first_name}} {{user.last_name}}: {{attempt.score}} ta to'g'ri javob</h5>
+                    </div>
+                </div>
+                {% if questions %}
+                {% for question in questions %}
+                    <div class="card mt-0 mb-4 question-card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <h5 class="fs-5" style="margin-right: 10px; line-height: 1.8;"">{{forloop.counter}}. <h5/>
+                                <h5 class="fs-5" style="margin-bottom: 24px; line-height: 1.8;">{{question.text|safe}}</h5>
+                            </div>
+                            {% for option in question.options %}
+                            <div class="form-check" style="margin-bottom: 25px;">
+                                {% if option in attempt.options %}
+                                <input type="radio" class="form-check-input fs-4" id={{option.id}} value={{option.id}} disabled name={{question.id}}/>
+                                <label class="form-check-label fs-4" for={{option.id}}>{{option.text|safe}}</label>
+                                {% endif %}
+                            </div> 
+                            {% endfor %}       
+                        </div>
+                    </div>
+                {% endfor %}            
+                <div class="card w-50">
+                    <a class="btn btn-primary py-8 fs-4" href="{% url 'competition' competition.id %}">Orqaga</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

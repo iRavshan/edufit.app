@@ -50,7 +50,7 @@ def Get(request, id):
     return render(request, 'competition/competition.html', context)
 
 
-@login_required(login_url="/account/login")
+@login_required(login_url="/user/login")
 def StartAttempt(request, competition_id, subject_name):
     competition = Competition.objects.get(id=competition_id)
     subject = Subject.objects.get(name=subject_name)
@@ -81,7 +81,7 @@ def StartAttempt(request, competition_id, subject_name):
     return render(request, 'competition/attempt.html', context)
 
 
-@login_required(login_url="/account/login")
+@login_required(login_url="/user/login")
 def FinishAttempt(request, attempt_id):
     attempt = Attempt.objects.get(id=attempt_id)
     if attempt and request.method == 'POST':
@@ -98,6 +98,23 @@ def FinishAttempt(request, attempt_id):
         attempt.score = score
         attempt.save()
     return Get(request, attempt.competition.id)
+
+
+@login_required(login_url="/user/login")
+def GetAttempt(request, competition_id):
+    competition = Competition.objects.get(id=competition_id)
+    attempt = Attempt.objects.get(user=request.user, competition=competition_id)
+    questions = Question.objects.filter(competition=competition_id, subject=attempt.subject, grade=request.user.grade)
+
+    context = {
+        'attempt': attempt,
+        'competition': competition,
+        'questions': questions
+    }
+    return render(request, 'competition/getAttempt.html', context)
+
+
+
 
         
             
