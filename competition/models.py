@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from uuid import uuid4
 from user.models import Grade, CustomUser
 from ckeditor.fields import RichTextField
 
@@ -52,3 +53,6 @@ class Attempt(models.Model):
     score = models.IntegerField(null=True)
     competition = models.ForeignKey(Competition, null=False, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return f'{self.user.first_name} {self.user.last_name}: {self.score}'

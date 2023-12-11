@@ -15,6 +15,9 @@ function FinishAttempt(){
     }
 
     else{
+        const sendFormButton = document.querySelector("#sendForm");
+        sendFormButton.innerHTML="Yuborilmoqda ...";
+        sendFormButton.setAttribute("disabled", "");
         document.getElementById("answersForm").submit();
     }
 }

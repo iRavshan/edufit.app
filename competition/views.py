@@ -22,12 +22,15 @@ def Get(request, id):
 
     for attempt in attempts:
         users.append({
+            "id": attempt.user.id,
             "first_name": attempt.user.first_name,
             "last_name": attempt.user.last_name,
             "institution": attempt.user.institution,
             "grade": attempt.user.grade,
             "score": attempt.score
         })
+
+    users = sorted(users, key=lambda d: d['score'], reverse=True)
 
     context = {
         'competition': competition,
@@ -42,7 +45,7 @@ def Get(request, id):
         
         if attempt:
             context["user_score"] = {
-                "rank": 0,
+                "rank": next((index for (index, d) in enumerate(users) if d["id"] == request.user.id), None) + 1,
                 "score": attempt[0].score,
                 "accuracy": int((attempt[0].score / questions) * 100)
             }
