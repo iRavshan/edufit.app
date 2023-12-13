@@ -21,6 +21,9 @@ class Competition(models.Model):
     start_at = models.DateTimeField(null=True)
     terminated = models.BooleanField(default=False, null=False)
 
+    class Meta:
+        ordering = ['start_at']
+
     def __str__(self):
         return self.title
 
@@ -53,6 +56,9 @@ class Attempt(models.Model):
     score = models.IntegerField(null=True)
     competition = models.ForeignKey(Competition, null=False, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.SET_NULL, null=True)
+ 
+    class Meta:
+        ordering = ['-finished_at']
 
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name}: {self.score}'

@@ -3,10 +3,37 @@ from django.http import HttpResponse
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
+from .forms import UserRegistrationForm
 
 def Register(request):
-    return render(request, 'user/register.html')
+    context = {}
+    if request.method == "POST":
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            third_name = form.cleaned_data['third_name']
+            username = form.cleaned_data['username']
+            institution = form.cleaned_data['institution']
+            grade = form.cleaned_data['grade']
+            password = form.cleaned_data['password1']
+            try:
+                instance = form.save(commit=False)
+                instance.phone = username
+                instance.save()
+                user = authenticate(request, username=username, password=password)
+                if user is not None:
+                    login(request, user)
+                    return redirect('/')
+            except:
+                context['form'] = form
+                return render(request, 'user/register.html', context)
+        else:
+            context['form'] = form
+            return render(request, 'user/register.html', context)
+    context['form'] = UserRegistrationForm()
+    return render(request, 'user/register.html', context)
+
 
 def Login(request):
     if request.method == "POST":
@@ -20,7 +47,8 @@ def Login(request):
         return redirect('login')
     return render(request, 'user/login.html')
 
-@login_required(login_url="/account/login")
+
+@login_required(login_url="/user/login")
 def Logout(request):
     logout(request)
     return render(request, 'user/login.html')
