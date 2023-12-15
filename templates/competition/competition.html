@@ -33,10 +33,15 @@
         <div class="col-sm-6 col-xl-4">
           <div class="card">
             <div class="card-body">
-              <div class="row alig n-items-start">
-                <div class="col-8">
-                  <h1 class="fw-semibold mb-9">{{user_score.rank}}</h1>
-                  <h5 class="card-titlefw-semibold">Reyting</h5>
+              <div class="row align-items-start">
+                <div class="col-8 d-flex justify-content-start">
+                  {% if user_score.rank is 1 or user_score.rank is 2 or user_score.rank is 3 %}
+                  <img src="{% static 'assets/images/gifs/trophy.gif' %}" alt="trophy" style="width: 37%; margin-right: 20px;">
+                  {% endif %}
+                  <div>
+                    <h1 class="fw-semibold mb-9">{{user_score.rank}}</h1>
+                    <h5 class="card-titlefw-semibold">Reyting</h5>
+                  </div>
                 </div>
                 <div class="col-4">
                   <div class="d-flex justify-content-end">
@@ -52,7 +57,7 @@
         <div class="col-sm-6 col-xl-4">
           <div class="card">
             <div class="card-body">
-              <div class="row alig n-items-start">
+              <div class="row align-items-start">
                 <div class="col-8">
                   <h1 class="fw-semibold mb-9">{{user_score.accuracy}}%</h1>
                   <h5 class="card-titlefw-semibold">Aniqlik</h5>
@@ -71,7 +76,7 @@
         <div class="col-sm-6 col-xl-4">
           <div class="card">
             <div class="card-body">
-              <div class="row alig n-items-start">
+              <div class="row align-items-start">
                 <div class="col-8">
                   <h1 class="fw-semibold mb-9">{{user_score.score}}</h1>
                   <h5 class="card-titlefw-semibold">Ochkolar</h5>
