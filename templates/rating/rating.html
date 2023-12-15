@@ -30,7 +30,7 @@
           {% endif %}
         </div>
         <div class="table-responsive mb-5">
-          {% if users %}
+          {% if page_obj.object_list %}
           <table class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
               <tr>
@@ -52,7 +52,7 @@
               </tr>
             </thead>
             <tbody>
-              {% for user in users %}
+              {% for user in page_obj.object_list %}
               <tr>
                 <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{forloop.counter}}</h6></td>
                 <td class="border-bottom-0">
@@ -74,6 +74,15 @@
             </tbody>
           </table>
           {% endif %}
+        </div>
+        <div class="pagination float-end">
+          {% for i in page_obj.paginator.page_range %}
+            {% if page_obj.number == i %}
+                <span class="btn btn-primary">{{ i }}</span>
+            {% else %}
+                <a href="?page={{ i }}" class="btn">{{ i }}</a>
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
