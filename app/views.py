@@ -6,10 +6,9 @@ from competition.models import Competition
 @login_required(login_url='/user/login')
 def Home(request):
     user = CustomUser.objects.get(id=request.user.id)
-    users = CustomUser.objects.filter(grade=user.grade)
-    grades = Grade.objects.all()[:10]
-    competitions = Competition.objects.filter(terminated=False)
-    
+    users = CustomUser.objects.filter(grade=user.grade)[:5]
+    grades = Grade.objects.all()
+    competitions = Competition.objects.filter(terminated=False) 
     context={
         'user': user,
         'top_users': users,

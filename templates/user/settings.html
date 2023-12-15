@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<div class="row">
+    <h5 class="fw-semibold mb-5 mt-5">Shaxsiy ma'lumotlar</h5>
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form action="{% url 'settings' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-6 mb-4">
+                            <label class="form-label" for="{{ form.first_name.name }}">{{ form.first_name.label }}</label>
+                            {{ form.first_name }}
+                            {{ form.first_name.errors }}
+                        </div>
+                        <div class="col-sm-12 col-lg-6 mb-4">
+                            <label class="form-label" for="{{ form.last_name.name }}">{{ form.last_name.label }}</label>
+                            {{ form.last_name }}
+                            {{ form.last_name.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-6 mb-4">
+                            <label class="form-label" for="{{ form.third_name.name }}">{{ form.third_name.label }}</label>
+                            {{ form.third_name }}
+                            {{ form.third_name.errors }}
+                        </div>
+                        <div class="col-sm-12 col-lg-6 mb-4">
+                            <label class="form-label" for="{{ form.username.name }}">{{ form.username.label }}</label>
+                            {{ form.username }}
+                            {{ form.username.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-6 mb-4">
+                            <label class="form-label" for="{{ form.institution.name }}">{{ form.institution.label }}</label>
+                            {{ form.institution }}
+                            {{ form.institution.errors }}
+                        </div>
+                        <div class="col-sm-12 col-lg-6 mb-4">
+                            <label class="form-label" for="{{ form.grade.name }}">{{ form.grade.label }}</label>
+                            {{ form.grade }}
+                            {{ form.grade.errors }}
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Saqlash</button>
+                </form>
+            </div>
+          </div>
+    </div>
+</div>
+{% endblock content %}

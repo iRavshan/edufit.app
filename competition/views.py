@@ -107,13 +107,37 @@ def FinishAttempt(request, attempt_id):
 def GetAttempt(request, competition_id):
     competition = Competition.objects.get(id=competition_id)
     attempt = Attempt.objects.get(user=request.user, competition=competition_id)
+    selectedOptions = attempt.options.all()
     questions = Question.objects.filter(competition=competition_id, subject=attempt.subject, grade=request.user.grade)
+    response_questions = []
+
+    for question in questions:
+        response_question = {
+            'id': question.id,
+            'text': question.text,
+        }
+
+        options = Option.objects.filter(question=question)
+        response_options = []
+
+        for option in options:
+            response_option = {
+                'id': option.id,
+                'text': option.text,
+                'is_correct': option.is_correct 
+            }
+            response_option['is_selected'] = True if option in selectedOptions else False
+            response_options.append(response_option)
+
+        response_question['options'] = response_options
+        response_questions.append(response_question)
 
     context = {
         'attempt': attempt,
         'competition': competition,
-        'questions': questions
+        'questions': response_questions
     }
+
     return render(request, 'competition/getAttempt.html', context)
 
 

@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <h2>{{competition.title|safe}}</h2>
                         <h6 class="mb-5">{{competition.subtitle}}</h6>
-                        <h5>{{user.first_name}} {{user.last_name}}: {{attempt.score}} ta to'g'ri javob</h5>
+                        <h5>{{user.first_name}} {{user.last_name}}: {{attempt.score}} ta to'g'ri javob <span class="text-success"><i class="ti ti-circle-check"></i></span></h5>
                     </div>
                 </div>
                 {% if questions %}
@@ -23,18 +23,45 @@
                                 <h5 class="fs-5" style="margin-bottom: 24px; line-height: 1.8;">{{question.text|safe}}</h5>
                             </div>
                             {% for option in question.options %}
-                            <div class="form-check" style="margin-bottom: 25px;">
-                                {% if option in attempt.options %}
+                            {% if option.is_selected and option.is_correct %}
+                            <div class="alert alert-success d-flex justify-content-between" role="alert">
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input fs-4" id={{option.id}} value={{option.id}} disabled name={{question.id}} checked/>
+                                    <label class="form-check-label fs-4" for={{option.id}}>{{option.text|safe}}</label>
+                                </div>
+                                <span style="font-size: 27px;">
+                                    <i class="ti ti-check"></i>
+                                </span>
+                            </div> 
+                            {% elif option.is_selected and not option.is_correct %}
+                            <div class="alert alert-danger d-flex justify-content-between" role="alert">
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input fs-4" id={{option.id}} value={{option.id}} disabled name={{question.id}} checked/>
+                                    <label class="form-check-label fs-4" for={{option.id}}>{{option.text|safe}}</label>
+                                </div>
+                                <span style="font-size: 27px;">
+                                    <i class="ti ti-x"></i>
+                                </span>
+                            </div>
+                            {% elif not option.is_selected and option.is_correct %}
+                            <div class="alert alert-success" role="alert">
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input fs-4" id={{option.id}} value={{option.id}} disabled name={{question.id}}/>
+                                    <label class="form-check-label fs-4" for={{option.id}}>{{option.text|safe}}</label>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="form-check" style="margin-bottom: 20px;">
                                 <input type="radio" class="form-check-input fs-4" id={{option.id}} value={{option.id}} disabled name={{question.id}}/>
                                 <label class="form-check-label fs-4" for={{option.id}}>{{option.text|safe}}</label>
-                                {% endif %}
-                            </div> 
+                            </div>
+                            {% endif %}
                             {% endfor %}       
                         </div>
                     </div>
                 {% endfor %}            
                 <div class="card w-50">
-                    <a class="btn btn-primary py-8 fs-4" href="{% url 'competition' competition.id %}">Orqaga</a>
+                    <a class="btn btn-primary py-8 fs-4" href="{% url 'competition' competition.id %}">Ortga qaytish</a>
                 </div>
                 {% endif %}
             </div>

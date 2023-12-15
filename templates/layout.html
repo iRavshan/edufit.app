@@ -61,9 +61,7 @@
             </li>
           </ul>
         </nav>
-        <!-- End Sidebar navigation -->
       </div>
-      <!-- End Sidebar scroll-->
     </aside>
     <div class="body-wrapper">
       <header class="app-header">
@@ -91,7 +89,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                    <a href="{% url 'home' %}" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-user fs-6"></i>
                       <p class="mb-0 fs-3">Profilim</p>
                     </a>
@@ -99,7 +97,16 @@
                       <i class="ti ti-mail fs-6"></i>
                       <p class="mb-0 fs-3">Xabarlar</p>
                     </a>
-                    <a href="{% url 'logout' %}" class="btn btn-outline-primary mx-3 mt-2 d-block">Chiqish</a>
+                    <a href="{% url 'settings' %}" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-settings fs-6"></i>
+                      <p class="mb-0 fs-3">Sozlamalar</p>
+                    </a>
+                    <a href="{% url 'logout' %}" class="btn btn-outline-primary mx-3 mt-2 d-block">
+                      Chiqish
+                      <span style="margin-left: 5px;">
+                        <i class="ti ti-logout"></i>
+                      </span>
+                    </a>
                   </div>
                 </div>
               </li>
