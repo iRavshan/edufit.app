@@ -2,28 +2,11 @@
 
 ## Introduction
 
-- Edufit is a project whereby is targeted to improve knowledge of school-children pupils.
+Edufit is a project targeted to improve the knowledge of school-children pupils. This is also a solution to analyse thier acquiring using clear data and find out critically which pupils have been being in trouble with learn which lessons. The platform is completely free of charge to use for everyone. You can take your grade -based tests or read the free lessons in the platform. If you do not know which ones are more efficient for you, do not worry about that! We are going to recommend lessons and competitions on your home page ourselves according to your last test results and search history. 
 
-## Features
+## Built-in technologies
 
-Clone it!
-
-```
-$ git clone git@github.com:goby-lang/sample-web-app.git
-```
-
-Go into the project directory and run the command:
-
-```
-$ docker-compose up
-```
-
-Open `http://localhost:3000` and enjoy!
-
-## Frontend
-
-- Start server - `$ yarn start`
-- Rebuild index.js - `$ webpack`
+`python 3.10` * `Django 5.0` * `PostgreSQL`
 
 ## Contributing
 
