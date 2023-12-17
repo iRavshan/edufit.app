@@ -61,7 +61,7 @@ class UserRegistrationForm(UserCreationForm):
         fields = ["first_name", "last_name", "third_name", "username", "institution", "grade", "password1", "password2"]
 
 
-class ChangeInfoForm(forms.Form):
+class ChangeInfoForm(forms.ModelForm):
     first_name = forms.CharField(label="Ismingiz", max_length=40, required=True)
     last_name = forms.CharField(label="Familiyangiz", max_length=40, required=True)
     third_name = forms.CharField(label="Otasining ismi", max_length=40, required=True)

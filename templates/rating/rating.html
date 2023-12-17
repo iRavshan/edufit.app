@@ -54,7 +54,7 @@
             <tbody>
               {% for user in page_obj.object_list %}
               <tr>
-                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{forloop.counter}}</h6></td>
+                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{user.rank}}</h6></td>
                 <td class="border-bottom-0">
                     <h6 class="fw-semibold mb-1">{{user.first_name}} {{user.last_name}}</h6>
                 </td>
@@ -67,7 +67,11 @@
                   </div>
                 </td>
                 <td class="border-bottom-0">
+                  {% if user.score %}
+                  <h6 class="fw-semibold mb-0 fs-4">{{user.score}}</h6>
+                  {% else %}
                   <h6 class="fw-semibold mb-0 fs-4">0</h6>
+                  {% endif %}
                 </td>
               </tr>         
               {% endfor %}                

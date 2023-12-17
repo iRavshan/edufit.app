@@ -42,7 +42,7 @@
       <div class="card-body">
         <div class="row alig n-items-start">
           <div class="col-8">
-            <h1 class="fw-semibold mb-9">0</h1>
+            <h1 class="fw-semibold mb-9">{{user.rank}}</h1>
             <h5 class="card-titlefw-semibold">Reyting</h5>
           </div>
           <div class="col-4">
@@ -61,7 +61,7 @@
       <div class="card-body">
         <div class="row alig n-items-start">
           <div class="col-8">
-            <h1 class="fw-semibold mb-9">0%</h1>
+            <h1 class="fw-semibold mb-9">{{user.average_accuracy}}</h1>
             <h5 class="card-titlefw-semibold">O'rtacha aniqlik</h5>
           </div>
           <div class="col-4">
@@ -80,7 +80,7 @@
       <div class="card-body">
         <div class="row alig n-items-start">
           <div class="col-8">
-            <h1 class="fw-semibold mb-9">0</h1>
+            <h1 class="fw-semibold mb-9">{{user.points}}</h1>
             <h5 class="card-titlefw-semibold">Ochkolar</h5>
           </div>
           <div class="col-4">
@@ -151,7 +151,7 @@
                   </div>
                 </td>
                 <td class="border-bottom-0">
-                  <h6 class="fw-semibold mb-0 fs-4">0</h6>
+                  <h6 class="fw-semibold mb-0 fs-4">{{top_user.score}}</h6>
                 </td>
               </tr>      
               {% endfor %}                

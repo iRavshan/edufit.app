@@ -46,13 +46,13 @@ def Login(request):
         return redirect('login')
     return render(request, 'user/login.html')
 
-@login_required(login_url="/user/login")
+@login_required
 def Settings(request):
     context = {}
-    context['form'] = ChangeInfoForm()
+    context['form'] = ChangeInfoForm(instance=request.user)
     return render(request, 'user/settings.html', context)
 
-@login_required(login_url="/user/login")
+@login_required
 def Logout(request):
     logout(request)
     return render(request, 'user/login.html')
