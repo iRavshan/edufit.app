@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% block title %} Bosh sahifa {% endblock %}
 {% block content %}
 <!DOCTYPE html>
 {% load static %}
@@ -10,7 +11,7 @@
         <div class="d-sm-flex d-block align-items-center justify-content-between">
           <div class="d-sm-flex d-block align-items-center justify-content-between">
             <div>
-              <img src="{% static '/assets/images/profile/user-1.jpg' %}" alt="" width="95" height="95" class="rounded-circle" style="margin-right: 19px;">
+              <img src="{% static '/images/profile/user-1.jpg' %}" alt="" width="95" height="95" class="rounded-circle" style="margin-right: 19px;">
             </div>
             <div class="mb-3 mb-sm-0">
               <h1 class="fw-semibold mb-3 mt-1">{{user.last_name}} {{user.first_name}} {{user.third_name}}</h1>
