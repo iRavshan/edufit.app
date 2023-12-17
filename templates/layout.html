@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %} Edufit {% endblock %}</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/images/logos/favicon/apple-touch-icon.png' %}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/logos/favicon/favicon-32x32.png' %}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/logos/favicon/favicon-16x16.png' %}">
-  <link rel="manifest" href="{% static 'assets/images/logos/favicon/site.webmanifest' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/logos/favicon/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logos/favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/logos/favicon/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'images/logos/favicon/site.webmanifest' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.min.css' %}"/>
 </head>
 <body>
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
@@ -18,7 +18,7 @@
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="{% url 'home' %}" class="text-nowrap logo-img">
-            <img src="{% static '/assets/images/logos/logo.png' %}" width="180" alt="" />
+            <img src="{% static '/images/logos/logo.png' %}" width="180" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -85,7 +85,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  <img src="{% static '/assets/images/profile/user-1.jpg' %}" alt="" width="35" height="35" class="rounded-circle">
+                  <img src="{% static '/images/profile/user-1.jpg' %}" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
@@ -131,11 +131,11 @@
     </div>
     </div>
   </div>
-  <script src="{% static 'assets/libs/jquery/dist/jquery.min.js' %}"></script>
-  <script src="{% static 'assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'assets/js/sidebarmenu.js' %}"></script>
-  <script src="{% static 'assets/js/app.min.js' %}"></script>
-  <script src="{% static 'assets/libs/simplebar/dist/simplebar.js' %}"></script>
-  <script src="{% static 'assets/js/dashboard.js' %}"></script>
+  <script src="{% static 'libs/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/sidebarmenu.js' %}"></script>
+  <script src="{% static 'js/app.min.js' %}"></script>
+  <script src="{% static 'libs/simplebar/dist/simplebar.js' %}"></script>
+  <script src="{% static 'js/dashboard.js' %}"></script>
 </body>
 </html>
