@@ -9,8 +9,8 @@
       <div class="card-body p-4">
         <div class="d-sm-flex d-block align-items-center justify-content-between">
           <div class="w-100 mb-5">
-            <form action="" class="d-flex d-block align-items-center justify-content-between">
-                <input class="form-control" placeholder="Ism yoki familiyani kiriting"/>
+            <form action="{% url 'rating' %}" class="d-flex d-block align-items-center justify-content-between" method="get">
+                <input class="form-control" placeholder="Ism yoki familiyani kiriting" name="search" id="search"/>
                 <button type="submit" class="btn btn-primary mx-3 d-flex d-block align-items-center justify-content-between">
                     <span style="margin-right: 10px;">
                         <i class="ti ti-search"></i>
