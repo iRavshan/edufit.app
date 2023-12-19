@@ -15,7 +15,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://edufit.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://edufit.up.railway.app', 'https://edufit.uz']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
