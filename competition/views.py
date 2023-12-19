@@ -12,7 +12,7 @@ def Competitions(request):
     }
     return render(request, 'competition/competitions.html', context)
 
-
+@login_required
 def Get(request, id):
     competition = Competition.objects.get(id=id)
     grades = competition.grades.all()
