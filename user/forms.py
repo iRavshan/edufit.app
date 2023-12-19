@@ -65,7 +65,6 @@ class ChangeInfoForm(forms.ModelForm):
     first_name = forms.CharField(label="Ismingiz", max_length=40, required=True)
     last_name = forms.CharField(label="Familiyangiz", max_length=40, required=True)
     third_name = forms.CharField(label="Otasining ismi", max_length=40, required=True)
-    username = forms.CharField(label="Telefon raqam", max_length=15, required=True)
     institution = forms.ModelChoiceField(label="Maktabingiz", queryset=Institution.objects.all())
     grade = forms.ModelChoiceField(label="Sinfingiz", queryset=Grade.objects.all())
 
@@ -86,11 +85,6 @@ class ChangeInfoForm(forms.ModelForm):
             'id': 'third_name',
             'class': 'form-control'
         })
-        self.fields['username'].widget.attrs.update({
-            'name': 'username',
-            'id': 'username',
-            'class': 'form-control'
-        })
         self.fields['institution'].widget.attrs.update({
             'name': 'institution',
             'id': 'institution',
@@ -104,6 +98,6 @@ class ChangeInfoForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ["first_name", "last_name", "third_name", "username", "institution", "grade"]
+        fields = ["first_name", "last_name", "third_name", "institution", "grade"]
 
                 

@@ -46,10 +46,29 @@ def Login(request):
         return redirect('login')
     return render(request, 'user/login.html')
 
+
 @login_required
 def Settings(request):
+
     context = {}
+
+    if request.method == 'POST':
+        form = ChangeInfoForm(request.POST, instance=request.user)
+        if form.is_valid():
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            third_name = form.cleaned_data['third_name']
+            grade = form.cleaned_data['grade']
+            institution = form.cleaned_data['institution']
+        try:
+            form.save()
+            redirect('/')
+        except:
+            context['form'] = form
+            return render(request, 'user/settings.html', context)
+    
     context['form'] = ChangeInfoForm(instance=request.user)
+
     return render(request, 'user/settings.html', context)
 
 @login_required

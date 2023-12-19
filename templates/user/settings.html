@@ -11,27 +11,20 @@
                 <form action="{% url 'settings' %}" method="post">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-sm-12 col-lg-6 mb-4">
+                        <div class="col-sm-12 col-lg-4 mb-4">
                             <label class="form-label" for="{{ form.first_name.name }}">{{ form.first_name.label }}</label>
                             {{ form.first_name }}
                             {{ form.first_name.errors }}
                         </div>
-                        <div class="col-sm-12 col-lg-6 mb-4">
+                        <div class="col-sm-12 col-lg-4 mb-4">
                             <label class="form-label" for="{{ form.last_name.name }}">{{ form.last_name.label }}</label>
                             {{ form.last_name }}
                             {{ form.last_name.errors }}
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-lg-6 mb-4">
+                        <div class="col-sm-12 col-lg-4 mb-4">
                             <label class="form-label" for="{{ form.third_name.name }}">{{ form.third_name.label }}</label>
                             {{ form.third_name }}
                             {{ form.third_name.errors }}
-                        </div>
-                        <div class="col-sm-12 col-lg-6 mb-4">
-                            <label class="form-label" for="{{ form.username.name }}">{{ form.username.label }}</label>
-                            {{ form.username }}
-                            {{ form.username.errors }}
                         </div>
                     </div>
                     <div class="row">
@@ -46,6 +39,9 @@
                             {{ form.grade.errors }}
                         </div>
                     </div>
+                    {% for error in form.errors %}
+                        {{error.message}}
+                    {% endfor %}
                     <button type="submit" class="btn btn-primary">Saqlash</button>
                 </form>
             </div>
