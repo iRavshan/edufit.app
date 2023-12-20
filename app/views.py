@@ -55,3 +55,7 @@ def Home(request):
     }
     
     return render(request, 'home/home.html', context)
+
+
+def error_404_view(request, exception):
+    return render(request, '404.html')

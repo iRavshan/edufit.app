@@ -1,0 +1,20 @@
+{% extends 'emptyLayout.html' %}
+{% block title %} Sahifa topilmadi {% endblock %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center w-100">
+        <div class="row justify-content-center w-100">
+            <div class="col-12">
+                <div class="text-center position-relative">
+                    <img src="{% static 'images/errors/404.png' %}" alt="page not found" class="mb-5">
+                    <h2 class="text-primary">Sahifa topilmadi</h2>
+                    <p>Siz izlayotgan sahifani topa olmadik</p>
+                    <a href="{% url 'home' %}" class="btn btn-info">Bosh sahifaga</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
