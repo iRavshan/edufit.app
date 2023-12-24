@@ -3,6 +3,7 @@ from datetime import datetime
 from uuid import uuid4
 from user.models import Grade, CustomUser
 from ckeditor.fields import RichTextField
+from django.utils.translation import gettext_lazy as _
 
 
 class Subject(models.Model):

@@ -2,15 +2,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext_lazy as _
 from . import views
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('user/', include('user.urls')),
-    path('rating/', include('rating.urls')),
-    path('competitions/', include('competition.urls')),
+urlpatterns = i18n_patterns(
+    path(_('admin/'), admin.site.urls),
+    path(_('user/'), include('user.urls')),
+    path(_('rating/'), include('rating.urls')),
+    path(_('competitions/'), include('competition.urls')),
     path('', views.Home, name='home')
-]
+)
 
 handler404 = 'app.views.error_404_view'
 

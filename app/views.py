@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
+from django.utils.translation import gettext as _
 from user.models import CustomUser, Grade
 from competition.models import Competition, Attempt
 

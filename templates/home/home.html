@@ -1,10 +1,11 @@
 {% extends 'layout.html' %}
 {% block title %} Bosh sahifa {% endblock %}
 {% block content %}
+{% load i18n %}
 <!DOCTYPE html>
 {% load static %}
 <div class="row">
-  <h5 class="fw-semibold mb-4 mt-5">Mening profilim</h5>
+  <h5 class="fw-semibold mb-4 mt-5">{% trans "Mening profilim" %}</h5>
   <div class="col-sm-12 col-xl-12">
     <div class="card">
       <div class="card-body">
@@ -25,10 +26,10 @@
           </div>
           <div>
             <a class="btn btn-light m-1" href="{% url 'settings' %}">
-              <span>
+              <span style="margin-right: 5px;">
                 <i class="ti ti-pencil"></i>
               </span>
-              O'zgartirish
+              {% trans "Tahrirlash" %}
             </a>
           </div>
         </div>
@@ -37,14 +38,14 @@
   </div>
 </div>
 <div class="row">
-  <h5 class="fw-semibold mb-4 mt-3">Ko'rsatkichlar</h5>
+  <h5 class="fw-semibold mb-4 mt-3">{% trans "Ko'rsatkichlar" %}</h5>
   <div class="col-sm-6 col-xl-4">
     <div class="card">
       <div class="card-body">
         <div class="row alig n-items-start">
           <div class="col-8">
             <h1 class="fw-semibold mb-9">{{user.rank}}</h1>
-            <h5 class="card-titlefw-semibold">Reyting</h5>
+            <h5 class="card-titlefw-semibold">{% trans "O'rin" %}</h5>
           </div>
           <div class="col-4">
             <div class="d-flex justify-content-end">
@@ -63,7 +64,7 @@
         <div class="row alig n-items-start">
           <div class="col-8">
             <h1 class="fw-semibold mb-9">{{user.average_accuracy}}</h1>
-            <h5 class="card-titlefw-semibold">O'rtacha aniqlik</h5>
+            <h5 class="card-titlefw-semibold">{% trans "O'rtacha aniqlik" %}</h5>
           </div>
           <div class="col-4">
             <div class="d-flex justify-content-end">
@@ -82,7 +83,7 @@
         <div class="row alig n-items-start">
           <div class="col-8">
             <h1 class="fw-semibold mb-9">{{user.points}}</h1>
-            <h5 class="card-titlefw-semibold">Ochkolar</h5>
+            <h5 class="card-titlefw-semibold">{% trans "Ochkolar" %}</h5>
           </div>
           <div class="col-4">
             <div class="d-flex justify-content-end">
@@ -102,7 +103,7 @@
       <div class="card-body p-4">
         <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
           <div class="mb-3 mb-sm-0">
-            <h5 class="card-title fw-semibold">Eng yuqori reyting</h5>
+            <h5 class="card-title fw-semibold">{% trans "Eng yuqori reyting" %}</h5>
           </div>
           {% if grades %}
           <div>
@@ -169,7 +170,7 @@
   </div>
 </div>
 <div class="row">
-  <h5 class="fw-semibold mb-4 mt-4">Siz uchun tavsiya</h5>
+  <h5 class="fw-semibold mb-4 mt-4">{% trans "Siz uchun tavsiyalar" %}</h5>
   <div class="col-sm-12 col-xl-12">
     {% if competitions %}
     {% for competition in competitions %}
@@ -185,7 +186,7 @@
   </div>
 </div>
 <div class="row">
-  <h5 class="fw-semibold mb-4 mt-5">Tavsiya etilgan darsliklar</h5>
+  <h5 class="fw-semibold mb-4 mt-5">{% trans "Tavsiya etilgan darsliklar" %}</h5>
   <div class="col-sm-12 col-xl-12">
     <div class="card">
       <div class="card-body">

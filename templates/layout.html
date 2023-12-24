@@ -1,3 +1,4 @@
+{% load i18n %}
 <!doctype html>
 {% load static %}
 <html lang="en">
@@ -5,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-adsense-account" content="ca-pub-1482378044784975">
-  <title>{% block title %}  {% endblock %} — Edufit.uz</title>
+  <title>{% block title %}{% blocktrans %}{% endblocktrans %}{% endblock %} - Edufit</title>
   <meta name="description" content="Eedufit bilan mutlaqo bepul o'rgan">
   <meta property="og:image" content="{% static 'images/opengraph/banner.png'%}"/>
   <meta property="og:title" content="Edufit.uz"/>
@@ -39,7 +40,7 @@
                 <span>
                   <i class="ti ti-home"></i>
                 </span>
-                <span class="hide-menu">Bosh sahifa</span>
+                <span class="hide-menu">{% trans "Bosh sahifa" %}</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -47,7 +48,7 @@
                 <span>
                   <i class="ti ti-assembly"></i>
                 </span>
-                <span class="hide-menu">Olimpiadalar</span>
+                <span class="hide-menu">{% trans "Olimpiadalar" %}</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -55,7 +56,7 @@
                 <span>
                   <i class="ti ti-flame"></i>
                 </span>
-                <span class="hide-menu">Reyting</span>
+                <span class="hide-menu">{% trans "Reyting" %}</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -63,7 +64,7 @@
                 <span>
                   <i class="ti ti-books"></i>
                 </span>
-                <span class="hide-menu">Darsliklar</span>
+                <span class="hide-menu">{% trans "Darsliklar" %}</span>
               </a>
             </li>
           </ul>
@@ -98,18 +99,18 @@
                   <div class="message-body">
                     <a href="{% url 'home' %}" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3">Profilim</p>
+                      <p class="mb-0 fs-3">{% trans "Profilim" %}</p>
                     </a>
                     <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">Xabarlar</p>
+                      <p class="mb-0 fs-3">{% trans "Xabarlar" %}</p>
                     </a>
                     <a href="{% url 'settings' %}" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-settings fs-6"></i>
-                      <p class="mb-0 fs-3">Sozlamalar</p>
+                      <p class="mb-0 fs-3">{% trans "Sozlamalar" %}</p>
                     </a>
                     <a href="{% url 'logout' %}" class="btn btn-outline-primary mx-3 mt-2 d-block">
-                      Chiqish
+                      {% trans "Chiqish" %}
                       <span style="margin-left: 5px;">
                         <i class="ti ti-logout"></i>
                       </span>
@@ -133,7 +134,7 @@
         {% block content %}
 	      {% endblock %}
         <div class="py-6 px-6 text-center">
-          <p class="mb-0 fs-4">&copy; 2023 Barcha huquqlar himoyalangan</p>
+          <p class="mb-0 fs-4">&copy; 2023 {% trans "Barcha huquqlar himoyalangan" %}</p>
         </div>
     </div>
     </div>

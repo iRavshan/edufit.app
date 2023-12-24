@@ -2,20 +2,17 @@ import os
 import dotenv
 from pathlib import Path
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-dotenv_file = os.path.join(BASE_DIR, ".env")
-
-dotenv.load_dotenv(dotenv_file)
-
 SECRET_KEY = 'R$2aL9p!Qs6w#8h*3vF5nU7tG@4i%Y0oR$2aL9p!Qs6w#8h*3vF5nU7tG@4i%Y0o'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://edufit.up.railway.app', 'https://edufit.uz']
+CSRF_TRUSTED_ORIGINS = ['https://edufit.uz']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -35,6 +32,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -93,13 +91,23 @@ AUTH_USER_MODEL = 'user.CustomUser'
 
 LOGIN_URL = reverse_lazy('login')
 
-LANGUAGE_CODE = 'uz-UZ'
-
 TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
+
+LANGUAGE_CODE = 'uz'
+
+LANGUAGES = (
+    ('uz', _('Uzbek')),
+    ('en', _('English')),
+    ('ru', _('Russian'))
+)
+
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale/')]
 
 STATIC_URL = '/static/'
 

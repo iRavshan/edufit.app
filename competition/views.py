@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods
 from datetime import datetime
 from user.models import Grade
 from .models import Competition, Subject, Question, Option, Attempt
@@ -85,6 +86,7 @@ def StartAttempt(request, competition_id, subject_name):
 
 
 @login_required
+@require_http_methods('POST')
 def FinishAttempt(request, attempt_id):
     attempt = Attempt.objects.get(id=attempt_id)
     if attempt and request.method == 'POST':

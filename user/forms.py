@@ -1,15 +1,16 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser, Grade, Institution
+from django.utils.translation import gettext_lazy as _
 
 
 class UserRegistrationForm(UserCreationForm):
-    first_name = forms.CharField(label="Ismingiz", max_length=40, required=True)
-    last_name = forms.CharField(label="Familiyangiz", max_length=40, required=True)
-    third_name = forms.CharField(label="Otasining ismi", max_length=40, required=True)
-    username = forms.CharField(label="Telefon raqam", max_length=15, required=True)
-    institution = forms.ModelChoiceField(label="Maktabingiz", queryset=Institution.objects.all())
-    grade = forms.ModelChoiceField(label="Sinfingiz", queryset=Grade.objects.all())
+    first_name = forms.CharField(label=_("Ismingiz"), max_length=40, required=True)
+    last_name = forms.CharField(label=_("Familiyangiz"), max_length=40, required=True)
+    third_name = forms.CharField(label=_("Otasining ismi"), max_length=40, required=True)
+    username = forms.CharField(label=_("Telefon raqam"), max_length=15, required=True)
+    institution = forms.ModelChoiceField(label=_("Maktabingiz"), queryset=Institution.objects.all())
+    grade = forms.ModelChoiceField(label=_("Sinfingiz"), queryset=Grade.objects.all())
     password1 = forms.PasswordInput()
     password2 = forms.PasswordInput()
 
@@ -62,11 +63,11 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class ChangeInfoForm(forms.ModelForm):
-    first_name = forms.CharField(label="Ismingiz", max_length=40, required=True)
-    last_name = forms.CharField(label="Familiyangiz", max_length=40, required=True)
-    third_name = forms.CharField(label="Otasining ismi", max_length=40, required=True)
-    institution = forms.ModelChoiceField(label="Maktabingiz", queryset=Institution.objects.all())
-    grade = forms.ModelChoiceField(label="Sinfingiz", queryset=Grade.objects.all())
+    first_name = forms.CharField(label=_("Ismingiz"), max_length=40, required=True)
+    last_name = forms.CharField(label=_("Familiyangiz"), max_length=40, required=True)
+    third_name = forms.CharField(label=_("Otasining ismi"), max_length=40, required=True)
+    institution = forms.ModelChoiceField(label=_("Maktabingiz"), queryset=Institution.objects.all())
+    grade = forms.ModelChoiceField(label=_("Sinfingiz"), queryset=Grade.objects.all())
 
     def __init__(self, *args, **kwargs):
         super(ChangeInfoForm, self).__init__(*args, **kwargs)
