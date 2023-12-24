@@ -1,6 +1,8 @@
 {% extends 'layout.html' %}
 {% block title %} Ma'lumotlarni tahrirlash {% endblock %}
 {% block content %}
+{% load i18n %}
+
 <!DOCTYPE html>
 {% load static %}
 <div class="row">
@@ -42,7 +44,7 @@
                     {% for error in form.errors %}
                         {{error.message}}
                     {% endfor %}
-                    <button type="submit" class="btn btn-primary">Saqlash</button>
+                    <button type="submit" class="btn btn-primary">Yangilash</button>
                 </form>
             </div>
         </div>

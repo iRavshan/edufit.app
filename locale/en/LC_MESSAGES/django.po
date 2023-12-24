@@ -1363,3 +1363,9 @@ msgstr "Recommendations for you"
 
 msgid "Tavsiya etilgan darsliklar"
 msgstr "Recommended courses"
+
+msgid "Shaxsiy ma'lumotlar"
+msgstr "Personal information"
+
+msgid "Yangilash"
+msgstr "Update"
