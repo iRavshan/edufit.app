@@ -109,6 +109,18 @@ LANGUAGES = (
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale/')]
 
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'uz',}, 
+        {'code': 'en',}, 
+        {'code': 'ru',}, 
+    ),
+    'default': {
+        'fallbacks': ['uz'],
+        'hide_untranslated': False,
+    }
+}
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] 

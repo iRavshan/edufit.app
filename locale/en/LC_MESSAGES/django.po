@@ -1305,7 +1305,7 @@ msgid "Reyting"
 msgstr "Rating"
 
 msgid "Umumiy reyting"
-msgstr "Overall rating"
+msgstr "Rating"
 
 msgid "Darsliklar"
 msgstr "Lessons"
@@ -1323,7 +1323,7 @@ msgid "Chiqish"
 msgstr "Logout"
 
 msgid "O'quvchi"
-msgstr "Fullname"
+msgstr "Full name"
 
 msgid "O'quv muassasa"
 msgstr "Institution"
@@ -1369,3 +1369,36 @@ msgstr "Personal information"
 
 msgid "Yangilash"
 msgstr "Update"
+
+msgid "Hozircha mavjud emas"
+msgstr "Currently not available"
+
+msgid "To'liq reytingni ko'rish"
+msgstr "See full rating"
+
+msgid "Kelayotgan"
+msgstr "Coming"
+
+msgid "Boshlangan"
+msgstr "Started"
+
+msgid "Yakunlangan"
+msgstr "Finished"
+
+msgid "Batafsil tahlil"
+msgstr "Detailed analysis"
+
+msgid "Ism yoki familiyani kiriting"
+msgstr "Enter first or last name"
+
+msgid "Aniqlik"
+msgstr "Accuracy"
+
+msgid "Ishtirok etish"
+msgstr "Pariticipate"
+
+msgid "Ortga qaytish"
+msgstr "Go Back"
+
+msgid "ta to'g'ri javob"
+msgstr "correct answers"

@@ -115,6 +115,11 @@
           </div>
           {% endif %}
         </div>
+        {% trans "O'quvchi" as header_fullname %}
+        {% trans "O'quv muassasa" as header_institution %}
+        {% trans "Sinf" as header_grade %}
+        {% trans "Ochkolar" as header_points %}
+        {% trans "To'liq reytingni ko'rish" as see_more %}
         {% if top_users %}
         <div class="table-responsive mb-4">
           <table class="table text-nowrap mb-0 align-middle">
@@ -124,16 +129,16 @@
                   <h6 class="fw-semibold mb-0"></h6>
                 </th>
                 <th class="border-bottom-0">
-                  <h6 class="fw-semibold mb-0">O'quvchi</h6>
+                  <h6 class="fw-semibold mb-0">{{header_fullname}}</h6>
                 </th>
                 <th class="border-bottom-0">
-                  <h6 class="fw-semibold mb-0">O'quv muassasa</h6>
+                  <h6 class="fw-semibold mb-0">{{header_institution}}</h6>
                 </th>
                 <th class="border-bottom-0">
-                  <h6 class="fw-semibold mb-0">Sinf</h6>
+                  <h6 class="fw-semibold mb-0">{{header_grade}}</h6>
                 </th>
                 <th class="border-bottom-0">
-                  <h6 class="fw-semibold mb-0">Ochkolar</h6>
+                  <h6 class="fw-semibold mb-0">{{header_points}}</h6>
                 </th>
               </tr>
             </thead>
@@ -161,7 +166,7 @@
           </table>
         </div>
         <a href="{% url 'rating' %}">
-          To'liq reytingni ko'rish
+          {{see_more}}
           <i class="ti ti-arrow-narrow-right"></i>
         </a>
         {% endif %}
@@ -190,7 +195,7 @@
   <div class="col-sm-12 col-xl-12">
     <div class="card">
       <div class="card-body">
-        <p class="card-text text-center">Hozircha mavjud emas</p>
+        <p class="card-text text-center">{% trans "Hozircha mavjud emas" %}</p>
       </div>
     </div>
   </div>

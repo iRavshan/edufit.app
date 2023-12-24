@@ -5,19 +5,19 @@
 <!DOCTYPE html>
 {% load static %}
 <div class="row">
-  <h5 class="fw-semibold mb-4 mt-5">Umumiy reyting</h5>
+  <h5 class="fw-semibold mb-4 mt-5">{% trans "Umumiy reyting" %}</h5>
   <div class="col-lg-12 d-flex align-items-stretch">
     <div class="card w-100">
       <div class="card-body p-4">
         <div class="d-sm-flex d-block align-items-center justify-content-between">
           <div class="w-100 mb-5">
             <form action="{% url 'rating' %}" class="d-flex d-block align-items-center justify-content-between" method="get">
-                <input class="form-control" placeholder="Ism yoki familiyani kiriting" name="search" id="search"/>
+                <input class="form-control" placeholder={% trans "Ism yoki familiyani kiriting" %} name="search" id="search"/>
                 <button type="submit" class="btn btn-primary mx-3 d-flex d-block align-items-center justify-content-between">
                     <span style="margin-right: 10px;">
                         <i class="ti ti-search"></i>
                     </span>
-                    Qidirish
+                    {% trans "Qidirish" %}
                 </button>
             </form>
           </div>
@@ -32,6 +32,10 @@
           {% endif %}
         </div>
         <div class="table-responsive mb-5">
+          {% trans "O'quvchi" as header_fullname %}
+          {% trans "O'quv muassasa" as header_institution %}
+          {% trans "Sinf" as header_grade %}
+          {% trans "Ochkolar" as header_points %}
           {% if page_obj.object_list %}
           <table class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
@@ -40,16 +44,16 @@
                   <h6 class="fw-semibold mb-0"></h6>
                 </th>
                 <th class="border-bottom-0">
-                  <h6 class="fw-semibold mb-0">O'quvchi</h6>
+                  <h6 class="fw-semibold mb-0">{{header_fullname}}</h6>
                 </th>
                 <th class="border-bottom-0">
-                  <h6 class="fw-semibold mb-0">O'quv muassasa</h6>
+                  <h6 class="fw-semibold mb-0">{{header_institution}}</h6>
                 </th>
                 <th class="border-bottom-0">
-                  <h6 class="fw-semibold mb-0">Sinf</h6>
+                  <h6 class="fw-semibold mb-0">{{header_grade}}</h6>
                 </th>
                 <th class="border-bottom-0">
-                  <h6 class="fw-semibold mb-0">Ochkolar</h6>
+                  <h6 class="fw-semibold mb-0">{{header_points}}</h6>
                 </th>
               </tr>
             </thead>
