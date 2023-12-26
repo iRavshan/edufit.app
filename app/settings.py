@@ -14,13 +14,13 @@ ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = ['https://edufit.uz']
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
 
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_SECONDS = 518400
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
+# SECURE_SSL_REDIRECT = True
+# SECURE_HSTS_SECONDS = 518400
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -107,13 +107,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-LANGUAGE_CODE = 'uz'
-
 LANGUAGES = (
     ('uz', _('Uzbek')),
     ('en', _('English')),
     ('ru', _('Russian'))
 )
+
+LANGUAGE_CODE = 'uz'
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale/')]
 

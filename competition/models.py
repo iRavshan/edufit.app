@@ -7,16 +7,16 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Subject(models.Model):
-    name = models.CharField(max_length=50, null=False, unique=True)
+    name = models.CharField(_('name'), max_length=50, null=False, unique=True)
 
     def __str__(self):
         return self.name
 
 
 class Competition(models.Model):
-    title = RichTextField(max_length=100, null=False, unique=True)
-    subtitle = models.CharField(max_length=200, null=True)
-    description = RichTextField(null=True)
+    title = RichTextField(_('title'), max_length=100, null=False, unique=True)
+    subtitle = models.CharField(_('subtitle'), max_length=200, null=True)
+    description = RichTextField(_('description'), null=True)
     subjects = models.ManyToManyField(Subject)
     grades = models.ManyToManyField(Grade)
     start_at = models.DateTimeField(null=True)
@@ -30,7 +30,7 @@ class Competition(models.Model):
 
 
 class Question(models.Model):
-    text = RichTextField(null=False)
+    text = RichTextField(_('text'), null=False)
     grade = models.ForeignKey(Grade, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     competition = models.ForeignKey(Competition, null=True, on_delete=models.CASCADE)
@@ -40,7 +40,7 @@ class Question(models.Model):
 
 
 class Option(models.Model):
-    text = RichTextField(null=False)
+    text = RichTextField(_('text'), null=False)
     is_correct = models.BooleanField(default=False, null=False)
     question = models.ForeignKey(Question, null=False, on_delete=models.CASCADE)
     

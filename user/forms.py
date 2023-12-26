@@ -7,7 +7,7 @@ from .models import CustomUser, Grade, Institution
 class UserRegistrationForm(UserCreationForm):
     first_name = forms.CharField(label=_("Ismingiz"), max_length=40, required=True)
     last_name = forms.CharField(label=_("Familiyangiz"), max_length=40, required=True)
-    third_name = forms.CharField(label=_("Otasining ismi"), max_length=40, required=True)
+    middle_name = forms.CharField(label=_("Otasining ismi"), max_length=40, required=True)
     username = forms.CharField(label=_("Telefon raqam"), max_length=15, required=True)
     institution = forms.ModelChoiceField(label=_("Maktabingiz"), queryset=Institution.objects.all())
     grade = forms.ModelChoiceField(label=_("Sinfingiz"), queryset=Grade.objects.all())
@@ -26,9 +26,9 @@ class UserRegistrationForm(UserCreationForm):
             'id': 'last_name',
             'class': 'form-control'
         })
-        self.fields['third_name'].widget.attrs.update({
-            'name': 'third_name',
-            'id': 'third_name',
+        self.fields['middle_name'].widget.attrs.update({
+            'name': 'middle_name',
+            'id': 'middle_name',
             'class': 'form-control'
         })
         self.fields['username'].widget.attrs.update({
@@ -59,13 +59,13 @@ class UserRegistrationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ["first_name", "last_name", "third_name", "username", "institution", "grade", "password1", "password2"]
+        fields = ["first_name", "last_name", "middle_name", "username", "institution", "grade", "password1", "password2"]
 
 
 class ChangeInfoForm(forms.ModelForm):
     first_name = forms.CharField(label=_("Ismingiz"), max_length=40, required=True)
     last_name = forms.CharField(label=_("Familiyangiz"), max_length=40, required=True)
-    third_name = forms.CharField(label=_("Otasining ismi"), max_length=40, required=True)
+    middle_name = forms.CharField(label=_("Otasining ismi"), max_length=40, required=True)
     institution = forms.ModelChoiceField(label=_("Maktabingiz"), queryset=Institution.objects.all())
     grade = forms.ModelChoiceField(label=_("Sinfingiz"), queryset=Grade.objects.all())
 
@@ -81,9 +81,9 @@ class ChangeInfoForm(forms.ModelForm):
             'id': 'last_name',
             'class': 'form-control'
         })
-        self.fields['third_name'].widget.attrs.update({
-            'name': 'third_name',
-            'id': 'third_name',
+        self.fields['middle_name'].widget.attrs.update({
+            'name': 'middle_name',
+            'id': 'middle_name',
             'class': 'form-control'
         })
         self.fields['institution'].widget.attrs.update({
@@ -99,6 +99,6 @@ class ChangeInfoForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ["first_name", "last_name", "third_name", "institution", "grade"]
+        fields = ["first_name", "last_name", "middle_name", "institution", "grade"]
 
                 
