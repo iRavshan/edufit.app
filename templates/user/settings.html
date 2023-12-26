@@ -13,31 +13,31 @@
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-sm-12 col-lg-4 mb-4">
-                            <label class="form-label" for="{{ form.first_name.name }}">{% blocktrans %} {{ form.first_name.label }} {% endblock %}</label>
+                            <label class="form-label" for="{{ form.first_name.name }}">{% blocktrans %} {{ form.first_name.label }} {% endblocktrans %}</label>
                             {{ form.first_name }}
-                            {% blocktrans %} {{ form.first_name.errors }} {% endblock %}
+                            {% blocktrans %} {{ form.first_name.errors }} {% endblocktrans %}
                         </div>
                         <div class="col-sm-12 col-lg-4 mb-4">
-                            <label class="form-label" for="{{ form.last_name.name }}">{% blocktrans %} {{ form.last_name.label }} {% endblock %}</label>
+                            <label class="form-label" for="{{ form.last_name.name }}">{% blocktrans %} {{ form.last_name.label }} {% endblocktrans %}</label>
                             {{ form.last_name }}
-                            {% blocktrans %} {{ form.last_name.errors }} {% endblock %}
+                            {% blocktrans %} {{ form.last_name.errors }} {% endblocktrans %}
                         </div>
                         <div class="col-sm-12 col-lg-4 mb-4">
-                            <label class="form-label" for="{{ form.third_name.name }}">{% blocktrans %} {{ form.third_name.label }} {% endblock %}</label>
+                            <label class="form-label" for="{{ form.third_name.name }}">{% blocktrans %} {{ form.third_name.label }} {% endblocktrans %}</label>
                             {{ form.third_name }}
-                            {% blocktrans %} {{ form.third_name.errors }} {% endblock %}
+                            {% blocktrans %} {{ form.third_name.errors }} {% endblocktrans %}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 col-lg-6 mb-4">
-                            <label class="form-label" for="{{ form.institution.name }}">{% blocktrans %} {{ form.institution.label }} {% endblock %}</label>
+                            <label class="form-label" for="{{ form.institution.name }}">{% blocktrans %} {{ form.institution.label }} {% endblocktrans %}</label>
                             {{ form.institution }} 
-                            {% blocktrans %} {{ form.institution.errors }} {% endblock %}
+                            {% blocktrans %} {{ form.institution.errors }} {% endblocktrans %}
                         </div>
                         <div class="col-sm-12 col-lg-6 mb-4">
-                            <label class="form-label" for="{{ form.grade.name }}">{% blocktrans %} {{ form.grade.label }} {% endblock %}</label>
+                            <label class="form-label" for="{{ form.grade.name }}">{% blocktrans %} {{ form.grade.label }} {% endblocktrans %}</label>
                             {{ form.grade }}
-                            {% blocktrans %} {{ form.grade.errors }} {% endblock %}
+                            {% blocktrans %} {{ form.grade.errors }} {% endblocktrans %}
                         </div>
                     </div>
                     {% for error in form.errors %}

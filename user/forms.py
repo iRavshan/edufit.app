@@ -1,7 +1,7 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser, Grade, Institution
-from django.utils.translation import gettext_lazy as _
 
 
 class UserRegistrationForm(UserCreationForm):

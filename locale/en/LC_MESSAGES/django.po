@@ -1401,10 +1401,49 @@ msgid "Ortga qaytish"
 msgstr "Go Back"
 
 msgid "ta to'g'ri javob"
-msgstr "correct answers"
+msgstr "correct answer(s)"
 
 msgid "Sizning natijangiz"
 msgstr "Your result"
 
 msgid "Barcha natijalar"
 msgstr "All results"
+
+msgid "Ismingiz"
+msgstr "First name"
+
+msgid "Familiyangiz"
+msgstr "Last name"
+
+msgid "Otasining ismi"
+msgstr "Middle name"
+
+msgid "Maktabingiz"
+msgstr "Institution"
+
+msgid "Sinfingiz"
+msgstr "Grade"
+
+msgid "Kirish"
+msgstr "Login"
+
+msgid "Hisobni faollashtirish"
+msgstr "Activate your account"
+
+msgid "Telefon raqam"
+msgstr "Phone"
+
+msgid "Parol"
+msgstr "Password"
+
+msgid "Parolni unutdingizmi?"
+msgstr "Forgot password?"
+
+msgid "Ro'yxatdan o'tish"
+msgstr "Sign up"
+
+msgid "Faollashtiring"
+msgstr "Login"
+
+msgid "Yangi hisob yaratish"
+msgstr "Create a new account"

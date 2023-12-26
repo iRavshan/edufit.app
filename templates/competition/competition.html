@@ -18,7 +18,7 @@
       <h5 class="fw-semibold mb-4 mt-5">{% trans "Sizning natijangiz" %}</h5>
       {% trans "Kirish" as Login %}
       {% trans "Natijangizni ko'rish uchun hisobingizni faollashtiring" as LoginMessage %}
-      {% trans "Reyting" as Rank %}
+      {% trans "O'rin" as Rank %}
       {% trans "Aniqlik" as Accuracy %}
       {% trans "Ochkolar" as Points %}
       {% trans "Batafsil tahlil" as DetailedAnalysis %}
@@ -101,7 +101,12 @@
           </div>
         </div>
         <div class="text-center">
-          <a href="{% url 'get_attempt' competition.id %}" class="btn btn-primary">{{DetailedAnalysis}}</a>
+          <a href="{% url 'get_attempt' competition.id %}" class="btn btn-primary">
+            <span style="margin-right: 5px;">
+              <i class="ti ti-checkup-list"></i>
+            </span>
+            {{DetailedAnalysis}}
+          </a>
         </div>
         {% else %}
         <div class="col-12 d-flex align-items-stretch">
