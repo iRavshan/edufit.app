@@ -13,7 +13,7 @@
               <a href="{% url 'home' %}" class="text-nowrap logo-img text-center d-block py-3 w-100">
                 <img src="{% static 'images/logos/logo.png' %}" width="180" alt="">
               </a>
-              <p class="text-center">Yangi hisob yaratish</p>
+              <p class="text-center">{% trans "Yangi hisob yaratish" %}</p>
               <form action="{% url 'register' %}" method="POST">
                 {% csrf_token %}
                 {% for field in form %}

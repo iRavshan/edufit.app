@@ -2,11 +2,10 @@
 {% block title %} Ma'lumotlarni tahrirlash {% endblock %}
 {% block content %}
 {% load i18n %}
-
 <!DOCTYPE html>
 {% load static %}
 <div class="row">
-    <h5 class="fw-semibold mb-5 mt-5">Shaxsiy ma'lumotlar</h5>
+    <h5 class="fw-semibold mb-5 mt-5">{% trans "Shaxsiy ma'lumotlar" %}</h5>
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -14,37 +13,37 @@
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-sm-12 col-lg-4 mb-4">
-                            <label class="form-label" for="{{ form.first_name.name }}">{{ form.first_name.label }}</label>
+                            <label class="form-label" for="{{ form.first_name.name }}">{% blocktrans %} {{ form.first_name.label }} {% endblock %}</label>
                             {{ form.first_name }}
-                            {{ form.first_name.errors }}
+                            {% blocktrans %} {{ form.first_name.errors }} {% endblock %}
                         </div>
                         <div class="col-sm-12 col-lg-4 mb-4">
-                            <label class="form-label" for="{{ form.last_name.name }}">{{ form.last_name.label }}</label>
+                            <label class="form-label" for="{{ form.last_name.name }}">{% blocktrans %} {{ form.last_name.label }} {% endblock %}</label>
                             {{ form.last_name }}
-                            {{ form.last_name.errors }}
+                            {% blocktrans %} {{ form.last_name.errors }} {% endblock %}
                         </div>
                         <div class="col-sm-12 col-lg-4 mb-4">
-                            <label class="form-label" for="{{ form.third_name.name }}">{{ form.third_name.label }}</label>
+                            <label class="form-label" for="{{ form.third_name.name }}">{% blocktrans %} {{ form.third_name.label }} {% endblock %}</label>
                             {{ form.third_name }}
-                            {{ form.third_name.errors }}
+                            {% blocktrans %} {{ form.third_name.errors }} {% endblock %}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 col-lg-6 mb-4">
-                            <label class="form-label" for="{{ form.institution.name }}">{{ form.institution.label }}</label>
-                            {{ form.institution }}
-                            {{ form.institution.errors }}
+                            <label class="form-label" for="{{ form.institution.name }}">{% blocktrans %} {{ form.institution.label }} {% endblock %}</label>
+                            {{ form.institution }} 
+                            {% blocktrans %} {{ form.institution.errors }} {% endblock %}
                         </div>
                         <div class="col-sm-12 col-lg-6 mb-4">
-                            <label class="form-label" for="{{ form.grade.name }}">{{ form.grade.label }}</label>
+                            <label class="form-label" for="{{ form.grade.name }}">{% blocktrans %} {{ form.grade.label }} {% endblock %}</label>
                             {{ form.grade }}
-                            {{ form.grade.errors }}
+                            {% blocktrans %} {{ form.grade.errors }} {% endblock %}
                         </div>
                     </div>
                     {% for error in form.errors %}
                         {{error.message}}
                     {% endfor %}
-                    <button type="submit" class="btn btn-primary">Yangilash</button>
+                    <button type="submit" class="btn btn-primary">{% trans "Yangilash" %}</button>
                 </form>
             </div>
         </div>

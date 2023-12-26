@@ -15,17 +15,23 @@
     </div>
   </div>
   <div class="row">
-      <h5 class="fw-semibold mb-4 mt-5">Sizning natijangiz</h5>
+      <h5 class="fw-semibold mb-4 mt-5">{% trans "Sizning natijangiz" %}</h5>
+      {% trans "Kirish" as Login %}
+      {% trans "Natijangizni ko'rish uchun hisobingizni faollashtiring" as LoginMessage %}
+      {% trans "Reyting" as Rank %}
+      {% trans "Aniqlik" as Accuracy %}
+      {% trans "Ochkolar" as Points %}
+      {% trans "Batafsil tahlil" as DetailedAnalysis %}
       {% if not user.is_authenticated %}
       <div class="col-sm-6 col-xl-12 d-flex align-items-stretch">
           <div class="card w-100">
             <div class="card-body p-4 text-center">
-              <p class="text-center p-0 m-0">Natijangizni ko'rish uchun hisobingizni faollashtiring</p>
+              <p class="text-center p-0 m-0">{{LoginMessage}}</p>
               <a href="{% url 'login' %}" class="btn btn-primary mt-4">
                 <span style="margin-right: 5px;">
                   <i class="ti ti-user-circle"></i>
                 </span>
-                Kirish
+                {{Login}}
               </a>
             </div>
           </div>
@@ -42,7 +48,7 @@
                   {% endif %}
                   <div>
                     <h1 class="fw-semibold mb-9">{{user_score.rank}}</h1>
-                    <h5 class="card-titlefw-semibold">Reyting</h5>
+                    <h5 class="card-titlefw-semibold">{{Rank}}</h5>
                   </div>
                 </div>
                 <div class="col-4">
@@ -62,7 +68,7 @@
               <div class="row align-items-start">
                 <div class="col-8">
                   <h1 class="fw-semibold mb-9">{{user_score.accuracy}}%</h1>
-                  <h5 class="card-titlefw-semibold">Aniqlik</h5>
+                  <h5 class="card-titlefw-semibold">{{Accuracy}}</h5>
                 </div>
                 <div class="col-4">
                   <div class="d-flex justify-content-end">
@@ -81,7 +87,7 @@
               <div class="row align-items-start">
                 <div class="col-8">
                   <h1 class="fw-semibold mb-9">{{user_score.score}}</h1>
-                  <h5 class="card-titlefw-semibold">Ochkolar</h5>
+                  <h5 class="card-titlefw-semibold">{{Points}}</h5>
                 </div>
                 <div class="col-4">
                   <div class="d-flex justify-content-end">
@@ -95,7 +101,7 @@
           </div>
         </div>
         <div class="text-center">
-          <a href="{% url 'get_attempt' competition.id %}" class="btn btn-primary">Batafsil</a>
+          <a href="{% url 'get_attempt' competition.id %}" class="btn btn-primary">{{DetailedAnalysis}}</a>
         </div>
         {% else %}
         <div class="col-12 d-flex align-items-stretch">
@@ -119,7 +125,7 @@
       {% endif %}
   </div>
   <div class="row">
-      <h5 class="fw-semibold mb-4 mt-5">Barcha natijalar</h5>
+      <h5 class="fw-semibold mb-4 mt-5">{% trans "Barcha natijalar" %}</h5>
       <div class="col-12 d-flex align-items-stretch">
           <div class="card w-100">
             <div class="card-body p-4">
@@ -131,7 +137,7 @@
                           <span style="margin-right: 10px;">
                               <i class="ti ti-search"></i>
                           </span>
-                          Qidirish
+                          {% trans "Qidirish" %}
                       </button>
                   </form>
                 </div>
@@ -150,6 +156,11 @@
                   </select>
                 </div>
               </div>
+              {% trans "O'quvchi" as header_fullname %}
+              {% trans "O'quv muassasa" as header_institution %}
+              {% trans "Sinf" as header_grade %}
+              {% trans "Ochkolar" as header_points %}
+              {% trans "Natijalar qayd etilmagan" as NoRecordsMessage %}
               {% if users %}
               <div class="table-responsive mb-5">
                 <table class="table text-nowrap mb-0 align-middle">
@@ -159,16 +170,16 @@
                         <h6 class="fw-semibold mb-0"></h6>
                       </th>
                       <th class="border-bottom-0">
-                        <h6 class="fw-semibold mb-0">O'quvchi</h6>
+                        <h6 class="fw-semibold mb-0">{{header_fullname}}</h6>
                       </th>
                       <th class="border-bottom-0">
-                        <h6 class="fw-semibold mb-0">O'quv muassasa</h6>
+                        <h6 class="fw-semibold mb-0">{{header_institution}}</h6>
                       </th>
                       <th class="border-bottom-0">
-                        <h6 class="fw-semibold mb-0">Sinf</h6>
+                        <h6 class="fw-semibold mb-0">{{header_grade}}</h6>
                       </th>
                       <th class="border-bottom-0">
-                        <h6 class="fw-semibold mb-0">Ochkolar</h6>
+                        <h6 class="fw-semibold mb-0">{{header_points}}</h6>
                       </th>
                     </tr>
                   </thead>
@@ -196,7 +207,7 @@
                 </table>
               </div>
               {% elif not users %}
-              <p class="text-center">Natijalar qayd etilmagan</p>
+              <p class="text-center">{{NoRecordsMessage}}</p>
               {% endif %}
             </div>
           </div>
