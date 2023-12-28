@@ -14,7 +14,7 @@ class JobSubcategory(models.Model):
 class JobCategory(models.Model):
     id = models.UUIDField(primary_key=True, editable=False, unique=True, null=False, default=uuid.uuid4)
     name = models.CharField(_('name'), max_length=50, unique=True)
-    subcategories = models.ForeignKey(JobSubcategory, on_delete=models.CASCADE)
+    subcategories = models.ForeignKey(JobSubcategory, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
