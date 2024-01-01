@@ -1308,7 +1308,7 @@ msgid "Umumiy reyting"
 msgstr "Rating"
 
 msgid "Darsliklar"
-msgstr "Lessons"
+msgstr "Schoolbooks"
 
 msgid "Profilim"
 msgstr "My profile"
@@ -1362,7 +1362,7 @@ msgid "Siz uchun tavsiyalar"
 msgstr "Recommendations for you"
 
 msgid "Tavsiya etilgan darsliklar"
-msgstr "Recommended courses"
+msgstr "Recommended schoolbooks"
 
 msgid "Shaxsiy ma'lumotlar"
 msgstr "Personal information"
@@ -1373,8 +1373,11 @@ msgstr "Update"
 msgid "Hozircha mavjud emas"
 msgstr "Currently not available"
 
-msgid "To'liq reytingni ko'rish"
-msgstr "See full rating"
+msgid "To'liq reytingni ko'rsatish"
+msgstr "Show full rating"
+
+msgid "Barcha tahlillarni ko'rsatish"
+msgstr "Show all analytics"
 
 msgid "Kelayotgan"
 msgstr "Coming"

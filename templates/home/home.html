@@ -93,7 +93,7 @@
       </div>
       <div class="card-footer p-0">
         <a href="#" class="btn btn-light w-100 py-2">
-          Show all analytics
+          {% trans "Barcha tahlillarni ko'rsatish" %}
           <i class="ti ti-arrow-narrow-right"></i>
         </a>
       </div>
@@ -171,7 +171,7 @@
       </div>
       <div class="card-footer p-0">
         <a href="{% url 'rating' %}" class="btn btn-light w-100 py-2">
-          {% trans "To'liq reytingni ko'rish" %}
+          {% trans "To'liq reytingni ko'rsatish" %}
           <i class="ti ti-arrow-narrow-right"></i>
         </a>
       </div>
@@ -196,10 +196,77 @@
 </div>
 <div class="row">
   <h5 class="fw-semibold mb-4 mt-5">{% trans "Tavsiya etilgan darsliklar" %}</h5>
-  <div class="col-sm-12 col-xl-12">
-    <div class="card">
-      <div class="card-body">
-        <p class="card-text text-center">{% trans "Hozircha mavjud emas" %}</p>
+  <div class="row owl-carousel owl-theme">
+    <div class="col-sm-12">
+      <div class="card overflow-hidden rounded-2">
+          <div class="position-relative">
+              <a href="javascript:void(0)"><img src="{% static 'images/schoolbook/book_cover.png' %}" class="card-img-top rounded-0" alt="cover_image"/></a>
+              <span class="bg-info rounded p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3">
+                  5-sinf
+              </span>                      
+          </div>
+          <div class="card-body pt-3 p-4">
+              <h4 class="fw-semibold fs-4 mb-3"><a href="#" class="link-hover-underline">Informatika</a></h4>
+              <div class="d-flex align-items-center justify-content-between">
+                  <div class="progress w-100">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="card overflow-hidden rounded-2">
+          <div class="position-relative">
+              <a href="javascript:void(0)"><img src="{% static 'images/schoolbook/book_cover.png' %}" class="card-img-top rounded-0" alt="cover_image"/></a>
+              <span class="bg-info rounded p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3">
+                  5-sinf
+              </span>                      
+          </div>
+          <div class="card-body pt-3 p-4">
+              <h4 class="fw-semibold fs-4 mb-3"><a href="#" class="link-hover-underline">Informatika</a></h4>
+              <div class="d-flex align-items-center justify-content-between">
+                  <div class="progress w-100">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="card overflow-hidden rounded-2">
+          <div class="position-relative">
+              <a href="javascript:void(0)"><img src="{% static 'images/schoolbook/book_cover.png' %}" class="card-img-top rounded-0" alt="cover_image"/></a>
+              <span class="bg-info rounded p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3">
+                  5-sinf
+              </span>                      
+          </div>
+          <div class="card-body pt-3 p-4">
+              <h4 class="fw-semibold fs-4 mb-3"><a href="#" class="link-hover-underline">Informatika</a></h4>
+              <div class="d-flex align-items-center justify-content-between">
+                  <div class="progress w-100">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="card overflow-hidden rounded-2">
+          <div class="position-relative">
+              <a href="javascript:void(0)"><img src="{% static 'images/schoolbook/book_cover.png' %}" class="card-img-top rounded-0" alt="cover_image"/></a>
+              <span class="bg-info rounded p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3">
+                  5-sinf
+              </span>                      
+          </div>
+          <div class="card-body pt-3 p-4">
+              <h4 class="fw-semibold fs-4 mb-3"><a href="#" class="link-hover-underline">Informatika</a></h4>
+              <div class="d-flex align-items-center justify-content-between">
+                  <div class="progress w-100">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  </div>
+              </div>
+          </div>
       </div>
     </div>
   </div>
