@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext as _
 from user.models import CustomUser, Grade
 from competition.models import Competition, Attempt
+from schoolbook.models import SchoolBook
 
 @login_required
 def Home(request):
@@ -11,6 +12,7 @@ def Home(request):
     users = CustomUser.objects.filter(grade=current_user.grade)
     grades = Grade.objects.all()
     competitions = Competition.objects.filter(terminated=False) 
+    schoolbooks = SchoolBook.objects.filter(grade=request.user.grade.id)
 
     response_users = []
 
@@ -52,7 +54,8 @@ def Home(request):
         },
         'top_users': response_users[:5],
         'grades': grades,
-        'competitions': competitions
+        'competitions': competitions,
+        'schoolbooks': schoolbooks
     }
     
     return render(request, 'home/home.html', context)

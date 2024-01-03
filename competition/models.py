@@ -9,6 +9,9 @@ from django.utils.translation import gettext_lazy as _
 class Subject(models.Model):
     name = models.CharField(_('name'), max_length=50, null=False, unique=True)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name
 

@@ -21,6 +21,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logos/favicon/favicon-32x32.png' %}">
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/logos/favicon/favicon-16x16.png' %}">
   <link rel="manifest" href="{% static 'images/logos/favicon/site.webmanifest' %}">
+  <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
   <link rel="stylesheet" href="{% static 'css/styles.min.css' %}"/>
@@ -50,11 +51,11 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{% url 'jobs' %}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-briefcase"></i>
+              <a class="sidebar-link" href="{% url 'schoolbooks' %}" aria-expanded="false">
+                <span> 
+                  <i class="ti ti-books"></i>
                 </span>
-                <span class="hide-menu">{% trans "Kasblar" %}</span>
+                <span class="hide-menu">{% trans "Darsliklar" %}</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -71,14 +72,6 @@
                   <i class="ti ti-flame"></i>
                 </span>
                 <span class="hide-menu">{% trans "Reyting" %}</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="https://learn.edufit.uz" aria-expanded="false" target="_blank">
-                <span>
-                  <i class="ti ti-books"></i>
-                </span>
-                <span class="hide-menu">{% trans "Darsliklar" %}</span>
               </a>
             </li>
           </ul>
@@ -193,5 +186,10 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1482378044784975" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script src="{% static 'js/owl-carousel.js' %}"></script>
+  <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/3.0.1/Youtube.min.js"></script>
+  <script>
+    const player = videojs('my-video', {});
+  </script>
 </body>
 </html>
