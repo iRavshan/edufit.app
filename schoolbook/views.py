@@ -10,10 +10,26 @@ def Schoolbooks(request):
 
 def Schoolbook(request, school_book_id):
     schoolbook = SchoolBook.objects.get(id=school_book_id)
-    context = {
-        'schoolbook': schoolbook
-    }
-    return render(request, 'schoolbook/schoolbook.html')
+    modules = Module.objects.filter(school_books__id=school_book_id)
+    response_modules = []
+    
+    for module in modules:
+        lessons = Lesson.objects.filter(module=module.id)
+        response_modules.append({
+            'title': module.title,
+            'lessons': lessons
+        })
 
-def Lesson(request):
-    return render(request, 'schoolbook/lesson.html')
+    context = {
+        'schoolbook': schoolbook,
+        'modules': response_modules
+    }
+    
+    return render(request, 'schoolbook/schoolbook.html', context)
+
+def LessonView(request, lesson_id):
+    lesson = Lesson.objects.get(id=lesson_id)
+    context = {
+        'lesson': lesson
+    }
+    return render(request, 'schoolbook/lesson.html', context)
