@@ -1380,10 +1380,10 @@ msgid "Barcha tahlillarni ko'rsatish"
 msgstr "Show all analytics"
 
 msgid "Kelayotgan"
-msgstr "Coming"
+msgstr "Upcoming"
 
 msgid "Boshlangan"
-msgstr "Started"
+msgstr "Present"
 
 msgid "Yakunlangan"
 msgstr "Finished"
@@ -1398,7 +1398,7 @@ msgid "Aniqlik"
 msgstr "Accuracy"
 
 msgid "Ishtirok etish"
-msgstr "Pariticipate"
+msgstr "Participate"
 
 msgid "Ortga qaytish"
 msgstr "Go Back"
@@ -1433,6 +1433,9 @@ msgstr "Login"
 msgid "Hisobni faollashtirish"
 msgstr "Activate your account"
 
+msgid "Hisobingiz mavjudmi?"
+msgstr "Already have an account?"
+
 msgid "Telefon raqam"
 msgstr "Phone"
 
@@ -1450,3 +1453,9 @@ msgstr "Login"
 
 msgid "Yangi hisob yaratish"
 msgstr "Create a new account"
+
+msgid "Yangimisiz?"
+msgstr "New to Edufit?"
+
+msgid "Bugun nima o'rganmoqchisiz?"
+msgstr "What do you want to learn today?"

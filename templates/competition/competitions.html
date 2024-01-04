@@ -27,7 +27,7 @@
             <div class="card-body">
               <h5 class="fw-semibold fs-4"><a href="{% url 'competition' competition.id %}" class="link-hover-underline">{{competition.title|safe}}</a></h5>
               <p class="card-text">{{competition.subtitle}}</p>
-              <a href="{% url 'competition' competition.id  %}" class="btn btn-primary">Ishtirok etish</a>
+              <a href="{% url 'competition' competition.id  %}" class="btn btn-primary">{% trans "Ishtirok etish" %}</a>
             </div>
           </div>
           {% endfor %}
