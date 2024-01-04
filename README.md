@@ -6,7 +6,7 @@ Edufit is a project targeted to improve the knowledge of school-children pupils.
 
 ## Built-in technologies
 
-`python 3.10` * `Django 5.0` * `PostgreSQL`
+`python 3.10` * `Django 5.0` * `PostgreSQL` * `Redis`
 
 ## Contributing
 

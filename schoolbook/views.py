@@ -1,6 +1,14 @@
 from django.shortcuts import render
+from django.conf import settings
+from django.views.decorators.cache import cache_page
+from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from .models import SchoolBook, Module, Lesson
 
+
+
+CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
+
+@cache_page(CACHE_TTL)
 def Schoolbooks(request):
     schoolbooks = SchoolBook.objects.filter(grade=request.user.grade.id)
     context = {

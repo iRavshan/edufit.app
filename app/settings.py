@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'R$2aL9p!Qs6w#8h*3vF5nU7tG@4i%Y0oR$2aL9p!Qs6w#8h*3vF5nU7tG@4i%Y0o'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -24,12 +24,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'user',
-    'rating',
-    'competition',
-    'job',
-    'schoolbook',
-    'ckeditor'
+    'django.contrib.humanize',
+    'ckeditor',
+
+    'user.apps.UserConfig',
+    'rating.apps.RatingConfig',
+    'competition.apps.CompetitionConfig',
+    'job.apps.JobConfig',
+    'schoolbook.apps.SchoolbookConfig',
 ]
 
 MIDDLEWARE = [
@@ -42,6 +44,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -74,6 +78,22 @@ DATABASES = {
         'PORT': '30512'
     }
 }
+
+CACHE_TTL = 60 * 15
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://default:DBNJlKadHCIIPc6bK4ABok55o3NH4O1b@monorail.proxy.rlwy.net:30619',
+        'OPTIONS': {
+            'PASSWORD': 'DBNJlKadHCIIPc6bK4ABok55o3NH4O1b',
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_CACHE_ALIAS = 'default'
 
 
 AUTH_PASSWORD_VALIDATORS = [
