@@ -1,5 +1,5 @@
 {% extends 'emptyLayout.html' %}
-{% block title %} {{competition.title|safe}} {% endblock %}
+{% block title %} {{competition.title}} {% endblock %}
 {% block content %}
 {% load i18n %}
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
                 <div class="card mt-4">
                     <div class="top-line"></div>
                     <div class="card-body">
-                        <h2>{{competition.title|safe}}</h2>
+                        <h2>{{competition.title}}</h2>
                         <h6 class="mb-5">{{competition.subtitle}}</h6>
                         <h5>{{user.first_name}} {{user.last_name}}: {{attempt.score}} {% trans "ta to'g'ri javob" %} <span class="text-success"><i class="ti ti-circle-check"></i></span></h5>
                     </div>

@@ -1,21 +1,20 @@
 import os
-import environ
+from dotenv import load_dotenv
 from pathlib import Path
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
-env = environ.Env()
-environ.Env.read_env()
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
-CSRF_TRUSTED_ORIGINS = ['https://edufit.uz']
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', '').split(',')
 
 SECURE_SSL_REDIRECT = False
 
@@ -74,22 +73,22 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT')
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT')
     }
 }
 
-CACHE_TTL = env('CACHE_TTL')
+CACHE_TTL = int(os.environ.get('CACHE_TTL'))
 
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://default:DBNJlKadHCIIPc6bK4ABok55o3NH4O1b@monorail.proxy.rlwy.net:30619',
+        'LOCATION': os.environ.get('CACHE_LOCATION'),
         'OPTIONS': {
-            'PASSWORD': 'DBNJlKadHCIIPc6bK4ABok55o3NH4O1b',
+            'PASSWORD': os.environ.get('REDIS_PASSWORD'),
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
     }

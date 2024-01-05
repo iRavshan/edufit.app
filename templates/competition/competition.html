@@ -1,11 +1,11 @@
 {% extends 'layout.html' %}
-{% block title %} {{competition.title|safe}} {% endblock %}
+{% block title %} {{competition.title}} {% endblock %}
 {% block content %}
 {% load i18n %}
 <!DOCTYPE html>
 {% load static %}
   <div class="row">
-    <h3 class="fw-semibold mb-4 mt-5">{{competition.title|safe}}</h3>
+    <h3 class="fw-semibold mb-4 mt-5">{{competition.title}}</h3>
     <div class="col-12">
       <div class="card">
         <div class="card-body">

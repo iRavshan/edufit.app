@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% block title %} Darsliklar {% endblock %}
+{% block title %} {{lesson.title}} {% endblock %}
 {% block content %}
 {% load i18n %}
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
         <div data-vjs-player class="rounded-3">
             <video
                 id="my-video"
-                class="video-js w-100 mb-5"
+                class="video-js w-100 mb-5 rounded-3"
                 controls
                 preload="auto"
                 height="264"
