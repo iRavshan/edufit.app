@@ -1,12 +1,15 @@
 import os
-import dotenv
+import environ
 from pathlib import Path
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
+env = environ.Env()
+environ.Env.read_env()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'R$2aL9p!Qs6w#8h*3vF5nU7tG@4i%Y0oR$2aL9p!Qs6w#8h*3vF5nU7tG@4i%Y0o'
+SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = True
 
@@ -70,16 +73,16 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'g16GFE1AD63DCEa*1**d*4fCD-12dGgD',
-        'HOST': 'viaduct.proxy.rlwy.net',
-        'PORT': '30512'
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST'),
+        'PORT': env('DATABASE_PORT')
     }
 }
 
-CACHE_TTL = 60 * 15
+CACHE_TTL = env('CACHE_TTL')
 
 CACHES = {
     'default': {
