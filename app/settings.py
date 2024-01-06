@@ -81,7 +81,7 @@ DATABASES = {
     }
 }
 
-CACHE_TTL = int(os.environ.get('CACHE_TTL'))
+CACHE_TTL = 900
 
 CACHES = {
     'default': {
@@ -134,18 +134,6 @@ LANGUAGES = (
 LANGUAGE_CODE = 'uz'
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale/')]
-
-PARLER_LANGUAGES = {
-    None: (
-        {'code': 'uz',}, 
-        {'code': 'en',}, 
-        {'code': 'ru',}, 
-    ),
-    'default': {
-        'fallbacks': ['uz'],
-        'hide_untranslated': False,
-    }
-}
 
 STATIC_URL = '/static/'
 
