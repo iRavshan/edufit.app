@@ -18,7 +18,7 @@
                         </span>                      
                     </div>
                     <div class="card-body pt-3 p-4">
-                        <h6 class="fw-semibold fs-4 mb-3 text-uppercase"><a href="{% url 'schoolbook' school_book_id=schoolbook.id %}" class="link-hover-underline">{{schoolbook.subject.name}}</a></h6>
+                        <h6 class="fw-semibold fs-4 mb-3 text-uppercase"><a href="{% url 'schoolbook' school_book_slug=schoolbook.slug %}" class="link-hover-underline">{{schoolbook.subject.name}}</a></h6>
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="progress w-100">
                                 <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>

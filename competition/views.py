@@ -3,7 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
 from datetime import datetime
 from user.models import Grade
-from .models import Competition, Subject, Question, Option, Attempt
+from schoolbook.models import Subject
+from .models import Competition, Question, Option, Attempt
 
 
 def Competitions(request):
@@ -14,8 +15,8 @@ def Competitions(request):
     return render(request, 'competition/competitions.html', context)
 
 @login_required
-def Get(request, id):
-    competition = Competition.objects.get(id=id)
+def Get(request, competition_slug):
+    competition = Competition.objects.get(slug=competition_slug)
     grades = competition.grades.all()
     subjects = competition.subjects.all()
     attempts = Attempt.objects.filter(competition=competition, finished=True).order_by('score')
@@ -55,9 +56,9 @@ def Get(request, id):
 
 
 @login_required
-def StartAttempt(request, competition_id, subject_name):
-    competition = Competition.objects.get(id=competition_id)
-    subject = Subject.objects.get(name=subject_name)
+def StartAttempt(request, competition_slug, subject_slug):
+    competition = Competition.objects.get(slug=competition_slug)
+    subject = Subject.objects.get(slug=subject_slug)
     questions = Question.objects.filter(competition=competition, subject=subject, grade=request.user.grade)
     response = []
     
@@ -106,11 +107,11 @@ def FinishAttempt(request, attempt_id):
 
 
 @login_required
-def GetAttempt(request, competition_id):
-    competition = Competition.objects.get(id=competition_id)
-    attempt = Attempt.objects.get(user=request.user, competition=competition_id)
+def GetAttempt(request, competition_slug):
+    competition = Competition.objects.get(slug=competition_slug)
+    attempt = Attempt.objects.get(user=request.user, competition=competition.id)
     selectedOptions = attempt.options.all()
-    questions = Question.objects.filter(competition=competition_id, subject=attempt.subject, grade=request.user.grade)
+    questions = Question.objects.filter(competition=competition.id, subject=attempt.subject, grade=request.user.grade)
     response_questions = []
 
     for question in questions:

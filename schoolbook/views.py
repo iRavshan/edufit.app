@@ -5,7 +5,6 @@ from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from .models import SchoolBook, Module, Lesson
 
 
-
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 @cache_page(CACHE_TTL)
@@ -16,9 +15,9 @@ def Schoolbooks(request):
     }
     return render(request, 'schoolbook/schoolbooks.html', context)
 
-def Schoolbook(request, school_book_id):
-    schoolbook = SchoolBook.objects.get(id=school_book_id)
-    modules = Module.objects.filter(school_books__id=school_book_id)
+def Schoolbook(request, school_book_slug):
+    schoolbook = SchoolBook.objects.get(slug=school_book_slug)
+    modules = Module.objects.filter(school_books__id=schoolbook.id)
     response_modules = []
     
     for module in modules:
@@ -35,8 +34,8 @@ def Schoolbook(request, school_book_id):
     
     return render(request, 'schoolbook/schoolbook.html', context)
 
-def LessonView(request, lesson_id):
-    lesson = Lesson.objects.get(id=lesson_id)
+def LessonView(request, lesson_slug):
+    lesson = Lesson.objects.get(slug=lesson_slug)
     context = {
         'lesson': lesson
     }

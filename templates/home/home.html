@@ -185,9 +185,9 @@
     {% for competition in competitions %}
     <div class="card">
       <div class="card-body">
-        <h5 class="fw-semibold fs-4"><a href="{% url 'competition' competition.id  %}" class="link-hover-underline">{{competition.title|safe}}</a></h5>
+        <h5 class="fw-semibold fs-4"><a href="{% url 'competition' competition.slug  %}" class="link-hover-underline">{{competition.title|safe}}</a></h5>
         <p class="card-text">{{competition.subtitle|safe}}</p>
-        <a href="{% url 'competition' competition.id  %}" class="btn btn-primary">{% trans "Ishtirok etish" %}</a>
+        <a href="{% url 'competition' competition.slug  %}" class="btn btn-primary">{% trans "Ishtirok etish" %}</a>
       </div>
     </div>
     {% endfor %}
@@ -207,7 +207,7 @@
               </span>                      
           </div>
           <div class="card-body pt-3 p-4">
-              <h4 class="fw-semibold fs-4 mb-3 text-uppercase"><a href="{% url 'schoolbook' school_book_id=schoolbook.id %}" class="link-hover-underline">{{schoolbook.subject.name}}</a></h4>
+              <h4 class="fw-semibold fs-4 mb-3 text-uppercase"><a href="{% url 'schoolbook' school_book_slug=schoolbook.slug %}" class="link-hover-underline">{{schoolbook.subject.name}}</a></h4>
               <div class="d-flex align-items-center justify-content-between">
                   <div class="progress w-100">
                       <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>

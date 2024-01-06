@@ -1459,3 +1459,9 @@ msgstr "New to Edufit?"
 
 msgid "Bugun nima o'rganmoqchisiz?"
 msgstr "What do you want to learn today?"
+
+msgid "Olimpiadada qatnashish uchun fanlardan birini tanlang"
+msgstr "Choose one of the subjects below to participate in the Olympiad"
+
+msgid "Natijalar qayd etilmagan"
+msgstr "The results are not recorded"

@@ -12,7 +12,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', '').split(',')
 
@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'rating.apps.RatingConfig',
     'competition.apps.CompetitionConfig',
-    'job.apps.JobConfig',
     'schoolbook.apps.SchoolbookConfig',
 ]
 
