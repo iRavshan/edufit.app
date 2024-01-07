@@ -9,7 +9,7 @@
   <hr/>
 </div>
 <div class="row">
-  <div class="col-lg-8 offset-lg-2">
+  <div class="col-lg-8">
     <div class="accordion mb-5" id="modules">
       {% for module in modules %}
         <div class="accordion-item">
@@ -41,6 +41,30 @@
           </div>
         </div>        
       {% endfor %}
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-body pb-1">
+        <h5 class="fw-semibold mb-4">{% trans "Instruktorlar" %}</h5>
+        {% for module in modules %}
+          {% for intructor in module.instructors %}
+          <div class="d-flex align-items-between mb-4">
+            <div>
+              <img src="{% static '/images/profile/user-1.jpg' %}" class="rounded-circle" width="50" height="50" alt="logo">
+            </div>
+            <div class="ms-3">
+              <h3 class="fs-4 fw-semibold mb-2">
+                <a href="#" class="link-hover-underline">{{instructor.first_name}} {{instructor.last_name}}</a>
+              </h3>
+              <h6 class="mb-0">
+                {{instructor.institution.name}}, o'qituvchi
+              </h6>
+            </div>
+          </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>

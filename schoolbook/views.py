@@ -26,7 +26,8 @@ def Schoolbook(request, school_book_slug):
             'id': module.id,
             'slug': module.slug,
             'title': module.title,
-            'lessons': lessons
+            'lessons': lessons,
+            'instructors': module.instructors
         })
 
     context = {

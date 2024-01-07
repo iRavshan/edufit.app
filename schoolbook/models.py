@@ -2,7 +2,7 @@ from uuid import uuid4
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
-from user.models import Grade
+from user.models import Grade, CustomUser
 from ckeditor.fields import RichTextField
 
 
@@ -45,6 +45,7 @@ class Module(models.Model):
     title = models.CharField(_('title'), max_length=255, null=False)
     school_books = models.ManyToManyField(SchoolBook)
     slug = models.SlugField(unique=True, max_length=300, blank=True)
+    instructors = models.ManyToManyField(CustomUser, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -58,8 +59,8 @@ class Module(models.Model):
 class Lesson(models.Model):
     id = models.UUIDField(primary_key=True, null=False, default=uuid4, editable=False, auto_created=True)
     title = models.CharField(_('title'), max_length=255, null=False)
-    video_url = models.URLField(null=True)
-    content = RichTextField(_('content'), null=True)
+    video_url = models.URLField(null=True, blank=True)
+    content = RichTextField(_('content'), null=True, blank=True)
     module = models.ForeignKey(Module, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True, max_length=300, blank=True)
 
