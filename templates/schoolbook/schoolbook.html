@@ -48,7 +48,7 @@
       <div class="card-body pb-1">
         <h5 class="fw-semibold mb-4">{% trans "Instruktorlar" %}</h5>
         {% for module in modules %}
-          {% for intructor in module.instructors %}
+          {% for instructor in module.instructors.all %}
           <div class="d-flex align-items-between mb-4">
             <div>
               <img src="{% static '/images/profile/user-1.jpg' %}" class="rounded-circle" width="50" height="50" alt="logo">
