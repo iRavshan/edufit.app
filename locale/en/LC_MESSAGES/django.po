@@ -1468,3 +1468,9 @@ msgstr "The results are not recorded"
 
 msgid "Olimpiada allaqachon yakunlangan"
 msgstr "The olympiad is already over"
+
+msgid "Instruktorlar"
+msgstr "Instructors"
+
+msgid "o'qituvchi"
+msgstr "teacher"
