@@ -23,6 +23,8 @@ def Schoolbook(request, school_book_slug):
     for module in modules:
         lessons = Lesson.objects.filter(module=module.id)
         response_modules.append({
+            'id': module.id,
+            'slug': module.slug,
             'title': module.title,
             'lessons': lessons
         })

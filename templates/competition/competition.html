@@ -112,17 +112,21 @@
         <div class="col-12 d-flex align-items-stretch">
           <div class="card w-100">
             <div class="card-body p-4 text-center">
-              <p class="text-center p-0 m-0">{% trans "Olimpiadada qatnashish uchun fanlardan birini tanlang" %}</p>
-              <div class="mt-4">
-                {% for subject in subjects %}
-                <a href="{% url 'attempt' competition_slug=competition.slug subject_slug=subject.slug %}" class="btn btn-primary mx-2 mb-3">
-                  <span style="margin-right: 6px;">
-                    <i class="ti ti-player-play"></i>
-                  </span>
-                  {{subject.name}}
-                </a>
-                {% endfor %}
-              </div>
+              {% if competition.terminated %}
+                <p class="text-center p-0 m-0">{% trans "Olimpiada allaqachon yakunlanlangan" %}</p>
+              {% else %}
+                <p class="text-center p-0 m-0">{% trans "Olimpiadada qatnashish uchun fanlardan birini tanlang" %}</p>
+                <div class="mt-4">
+                  {% for subject in subjects %}
+                  <a href="{% url 'attempt' competition_slug=competition.slug subject_slug=subject.slug %}" class="btn btn-primary mx-2 mb-3">
+                    <span style="margin-right: 6px;">
+                      <i class="ti ti-player-play"></i>
+                    </span>
+                    {{subject.name}}
+                  </a>
+                  {% endfor %}
+                </div>
+              {% endif %}
             </div>
           </div>
         </div>

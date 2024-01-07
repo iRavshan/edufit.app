@@ -80,7 +80,7 @@ DATABASES = {
     }
 }
 
-CACHE_TTL = 900
+CACHE_TTL = 10
 
 CACHES = {
     'default': {

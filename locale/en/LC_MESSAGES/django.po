@@ -1465,3 +1465,6 @@ msgstr "Choose one of the subjects below to participate in the Olympiad"
 
 msgid "Natijalar qayd etilmagan"
 msgstr "The results are not recorded"
+
+msgid "Olimpiada allaqachon yakunlangan"
+msgstr "The olympiad is already over"

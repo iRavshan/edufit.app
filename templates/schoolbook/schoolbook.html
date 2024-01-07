@@ -10,34 +10,38 @@
 </div>
 <div class="row">
   <div class="col-lg-8 offset-lg-2">
-    <ul class="timeline-widget mb-0 position-relative mb-5">
+    <div class="accordion mb-5" id="modules">
       {% for module in modules %}
-      <li class="timeline-item d-flex position-relative overflow-hidden">
-        <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-          <span class="timeline-badge border-2 border border-primary bg-primary flex-shrink-0 my-8"></span>
-          <span class="timeline-badge-border d-block flex-shrink-0"></span>
-        </div>
-        <div class="timeline-desc fs-3 text-dark mt-n1 w-100">
-          <h4 class="fs-5">{{module.title}}</h4>
-        </div>
-      </li>
-        {% for lesson in module.lessons %}
-        <li class="timeline-item d-flex position-relative overflow-hidden">
-          <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-            <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
-            <span class="timeline-badge-border d-block flex-shrink-0"></span>
-          </div>
-          <div class="timeline-desc fs-3 text-dark mt-n1 w-100">
-            <div class="card">
-              <div class="card-body d-flex justify-content-between">
-                <h5 class="fs-4 mb-0"><a href="{% url 'lesson' lesson.slug %}" class="link-hover-underline">{{lesson.title}}</a></h5>
-              </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header fs-5" id="{{forloop.counter}}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{module.id}}" aria-expanded="false" aria-controls="{{module.id}}">
+              {{module.title}}
+            </button>
+          </h2>
+          <div id="{{module.id}}" class="accordion-collapse collapse" aria-labelledby="{{forloop.counter}}" data-bs-parent="#modules">
+            <div class="accordion-body">
+              <ul class="timeline-widget mb-0 position-relative">
+                {% for lesson in module.lessons %}
+                <li class="timeline-item d-flex position-relative overflow-hidden">
+                  <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                    <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
+                    <span class="timeline-badge-border d-block flex-shrink-0"></span>
+                  </div>
+                  <div class="timeline-desc fs-3 text-dark mt-n1 w-100">
+                    <div class="card">
+                      <div class="card-body d-flex justify-content-between">
+                        <h5 class="fs-4 mb-0"><a href="{% url 'lesson' lesson.slug %}" class="link-hover-underline">{{lesson.title}}</a></h5>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
             </div>
           </div>
-        </li>
-        {% endfor %}
+        </div>        
       {% endfor %}
-    </ul>
+    </div>
   </div>
 </div>
 {% endblock content %}
