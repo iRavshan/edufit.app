@@ -1474,3 +1474,6 @@ msgstr "Instructors"
 
 msgid "o'qituvchi"
 msgstr "teacher"
+
+msgid "Maqolalar"
+msgstr "Articles"

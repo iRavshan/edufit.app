@@ -44,7 +44,7 @@
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
             <li class="sidebar-item mt-4">
-              <a class="sidebar-link" href="{% url 'home' %}"" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'home' %}" aria-expanded="false">
                 <span>
                   <i class="ti ti-home"></i>
                 </span>
@@ -57,6 +57,14 @@
                   <i class="ti ti-books"></i>
                 </span>
                 <span class="hide-menu">{% trans "Darsliklar" %}</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{% url 'articles' %}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-news"></i>
+                </span>
+                <span class="hide-menu">{% trans "Maqolalar" %}</span>
               </a>
             </li>
             <li class="sidebar-item">

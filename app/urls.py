@@ -12,6 +12,7 @@ urlpatterns = i18n_patterns(
     path(_('rating/'), include('rating.urls')),
     path(_('competitions/'), include('competition.urls')),
     path(_('schoolbooks/'), include('schoolbook.urls')),
+    path(_('article/'), include('article.urls')),
     path('', views.Home, name='home')
 )
 

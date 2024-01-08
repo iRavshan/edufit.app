@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+{% block title %} Maqolalar {% endblock %}
+{% block content %}
+{% load i18n %}
+<!DOCTYPE html>
+{% load static %}
+<div class="mb-5 mt-5">
+  <h4 class="fw-semibold">{% trans "Maqolalar" %}</h4>
+</div>
+<div class="row">
+  <div class="col-lg-8">
+    <div class="row">
+        {% for article in articles %}
+        <div class="card mb-1">
+            <div class="d-flex align-items-between mb-2">
+                <div>
+                  <img src="{% static '/images/profile/user-1.jpg' %}" class="rounded-circle" width="25" height="25" alt="logo">
+                </div>
+                <div class="ms-3">
+                  <h6 class="fs-2 fw-semibold mb-1">
+                    <a href="#" class="link-hover-underline">{{article.author.first_name}} {{article.author.last_name}}</a>
+                  </h6>
+                  <h6 class="mb-0">
+                    {{article.created}}
+                  </h6>
+                </div>
+            </div>
+            <a href="{% url 'article' article.slug %}" class="link-hover-underline fs-4 mb-2">
+                {{article.title}}
+            </a>
+            {% for subject in article.subjects %}
+            <span class="badge bg-primary rounded-3 fw-semibold">#{{subject.name}}</span>
+            {% endfor %}
+        </div> 
+        {% endfor %}
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-body pb-1">
+        <h5 class="fw-semibold mb-4">{% trans "Eng mashhurlar" %}</h5>
+        {% for top_author in top_authors %}
+          <div class="d-flex align-items-between mb-4">
+            <div>
+              <img src="{% static '/images/profile/user-1.jpg' %}" class="rounded-circle" width="50" height="50" alt="logo">
+            </div>
+            <div class="ms-3">
+              <h3 class="fs-4 fw-semibold mb-2">
+                <a href="#" class="link-hover-underline">{{top_author.first_name}} {{top_author.last_name}}</a>
+              </h3>
+              <h6 class="mb-0">
+                {{top_author.institution.name}}, {{top_author.grade.name}}
+              </h6>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

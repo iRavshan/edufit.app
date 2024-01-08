@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'rating.apps.RatingConfig',
     'competition.apps.CompetitionConfig',
     'schoolbook.apps.SchoolbookConfig',
+    'article.apps.ArticleConfig'
 ]
 
 MIDDLEWARE = [
