@@ -17,6 +17,11 @@ def NewArticle(request):
 
 def Get(request, article_slug):
     article = Article.objects.get(slug=article_slug)
+    if request.user.is_authenticated:
+        viewers = article.viewers.all()
+        if not request.user in viewers:
+            article.viewers.add(request.user)
+            article.save()
     context = {
         'article': article
     }

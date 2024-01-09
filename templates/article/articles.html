@@ -4,33 +4,40 @@
 {% load i18n %}
 <!DOCTYPE html>
 {% load static %}
+{% load humanize %}
 <div class="mb-5 mt-5">
   <h4 class="fw-semibold">{% trans "Maqolalar" %}</h4>
 </div>
 <div class="row">
   <div class="col-lg-8">
-    <div class="row">
+    <div class="row mb-4">
         {% for article in articles %}
-        <div class="card mb-1">
-            <div class="d-flex align-items-between mb-2">
-                <div>
-                  <img src="{% static '/images/profile/user-1.jpg' %}" class="rounded-circle" width="25" height="25" alt="logo">
-                </div>
-                <div class="ms-3">
-                  <h6 class="fs-2 fw-semibold mb-1">
-                    <a href="#" class="link-hover-underline">{{article.author.first_name}} {{article.author.last_name}}</a>
-                  </h6>
-                  <h6 class="mb-0">
-                    {{article.created}}
-                  </h6>
-                </div>
+        <div class="card mb-2">
+          <div class="card-body px-3">
+            <div class="d-flex align-items-between mb-3">
+              <div>
+                <img src="{% static '/images/profile/user-1.jpg' %}" class="rounded-circle" width="25" height="25" alt="logo">
+              </div>
+              <div class="ms-3">
+                <h6 class="fs-3 fw-semibold mb-1">
+                  <a href="#" class="link-hover-underline">{{article.author.first_name}} {{article.author.last_name}}</a>
+                </h6>
+                <h6 class="mb-0 fs-2 text-lowercase">
+                  {{article.created|date:"j-F, Y"}} ({{ article.created|naturaltime }})
+                </h6>
+              </div>
             </div>
-            <a href="{% url 'article' article.slug %}" class="link-hover-underline fs-4 mb-2">
-                {{article.title}}
-            </a>
-            {% for subject in article.subjects %}
-            <span class="badge bg-primary rounded-3 fw-semibold">#{{subject.name}}</span>
-            {% endfor %}
+            <div style="margin-left: 40px;">
+              <h3 class="mb-3 fw-semibold">
+                <a href="{% url 'article' article.slug %}" class="link-hover-underline">
+                  {{article.title}}
+                </a>
+              </h3>
+              {% for subject in article.subjects.all %}
+              <span class="badge bg-primary rounded-3 fw-semibold">#{{subject.name}}</span>
+              {% endfor %}
+            </div>
+          </div>
         </div> 
         {% endfor %}
     </div>

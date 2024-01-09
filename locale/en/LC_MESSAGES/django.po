@@ -1477,3 +1477,27 @@ msgstr "teacher"
 
 msgid "Maqolalar"
 msgstr "Articles"
+
+msgid "yanvar"
+msgstr "january"
+
+msgid "fevral"
+msgstr "february"
+
+msgid "hours ago"
+msgstr "soat avval"
+
+msgid "hour ago"
+msgstr "soat avval"
+
+msgid "seconds ago"
+msgstr "sekund avval"
+
+msgid "minute ago"
+msgstr "daqiqa avval"
+
+msgid "minutes ago"
+msgstr "daqiqa avval"
+
+msgid "year ago"
+msgstr "yil avval"

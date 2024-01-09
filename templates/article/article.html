@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block title %} {{article.title}} {% endblock %}
+{% block content %}
+{% load i18n %}
+<!DOCTYPE html>
+{% load static %}
+{% load humanize %}
+<div class="row">
+  <div class="col-lg-9 offset-lg-1">
+    <div class="mb-5 mt-5">
+        <h2 class="fw-semibold mb-5">{{article.title}}</h2>
+        <div class="d-flex justify-content-start mb-4">
+            <div class="d-flex align-items-between">
+                <div>
+                  <img src="{% static '/images/profile/user-1.jpg' %}" class="rounded-circle" width="35" height="35" alt="logo">
+                </div>
+                <div class="ms-3">
+                  <h3 class="fs-4 fw-semibold mb-2 mt-2">
+                    <a href="#" class="link-hover-underline">{{article.author.first_name}} {{article.author.last_name}}</a>
+                  </h3>
+                </div>
+            </div>
+            <p class="fw-2 mt-2 ms-5">
+                <span style="margin-right: 5px;">
+                    <i class="ti ti-calendar"></i>
+                </span>
+                {{article.created|date:"j F, Y"}}
+            </p>
+            <p class="fw-2 mt-2 ms-4">
+                <span style="margin-right: 5px;">
+                    <i class="ti ti-eye"></i>
+                </span>
+                {{article.viewers|length}}
+            </p>
+            <div class="ms-4 mt-2">
+                {% for subject in article.subjects.all %}
+                <span class="badge bg-primary rounded-3 fw-semibold ms-2">#{{subject.name}}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <hr/> 
+    </div>
+    <div class="fs-5 mb-4">
+        <div class="lesson-content">
+            {{article.content|safe}}
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
