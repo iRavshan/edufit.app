@@ -12,7 +12,6 @@ def Register(request):
         if form.is_valid():
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
-            middle_name = form.cleaned_data['middle_name']
             username = form.cleaned_data['username']
             institution = form.cleaned_data['institution']
             grade = form.cleaned_data['grade']
@@ -57,7 +56,6 @@ def Settings(request):
         if form.is_valid():
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
-            middle_name = form.cleaned_data['middle_name']
             grade = form.cleaned_data['grade']
             institution = form.cleaned_data['institution']
         try:
