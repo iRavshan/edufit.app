@@ -44,7 +44,6 @@ def Home(request):
             'id': current_user.id,
             'first_name': current_user.first_name,
             'last_name': current_user.last_name,
-            'middle_name': current_user.middle_name,
             'grade': current_user.grade,
             'institution': current_user.institution,
             'rank': index_of_current_user + 1,
