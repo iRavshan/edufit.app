@@ -25,7 +25,6 @@ class Institution(models.Model):
 
 class CustomUser(AbstractUser):
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
-    middle_name = models.CharField(null=True, max_length=50)
     phone = models.CharField(null=False, max_length=20, unique=True)
     grade = models.ForeignKey(Grade, null=True, on_delete=models.SET_NULL)
     institution = models.ForeignKey(Institution, null=True, on_delete=models.SET_NULL)

@@ -26,11 +26,6 @@ class UserRegistrationForm(UserCreationForm):
             'id': 'last_name',
             'class': 'form-control'
         })
-        self.fields['middle_name'].widget.attrs.update({
-            'name': 'middle_name',
-            'id': 'middle_name',
-            'class': 'form-control'
-        })
         self.fields['username'].widget.attrs.update({
             'name': 'username',
             'id': 'username',
@@ -59,13 +54,12 @@ class UserRegistrationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ["first_name", "last_name", "middle_name", "username", "institution", "grade", "password1", "password2"]
+        fields = ["first_name", "last_name", "username", "institution", "grade", "password1", "password2"]
 
 
 class ChangeInfoForm(forms.ModelForm):
     first_name = forms.CharField(label=_("Ismingiz"), max_length=40, required=True)
     last_name = forms.CharField(label=_("Familiyangiz"), max_length=40, required=True)
-    middle_name = forms.CharField(label=_("Otasining ismi"), max_length=40, required=True)
     institution = forms.ModelChoiceField(label=_("Maktabingiz"), queryset=Institution.objects.all())
     grade = forms.ModelChoiceField(label=_("Sinfingiz"), queryset=Grade.objects.all())
 
@@ -81,11 +75,6 @@ class ChangeInfoForm(forms.ModelForm):
             'id': 'last_name',
             'class': 'form-control'
         })
-        self.fields['middle_name'].widget.attrs.update({
-            'name': 'middle_name',
-            'id': 'middle_name',
-            'class': 'form-control'
-        })
         self.fields['institution'].widget.attrs.update({
             'name': 'institution',
             'id': 'institution',
@@ -99,6 +88,6 @@ class ChangeInfoForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ["first_name", "last_name", "middle_name", "institution", "grade"]
+        fields = ["first_name", "last_name", "institution", "grade"]
 
                 
