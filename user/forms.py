@@ -7,7 +7,6 @@ from .models import CustomUser, Grade, Institution
 class UserRegistrationForm(UserCreationForm):
     first_name = forms.CharField(label=_("Ismingiz"), max_length=40, required=True)
     last_name = forms.CharField(label=_("Familiyangiz"), max_length=40, required=True)
-    middle_name = forms.CharField(label=_("Otasining ismi"), max_length=40, required=True)
     username = forms.CharField(label=_("Telefon raqam"), max_length=15, required=True)
     institution = forms.ModelChoiceField(label=_("Maktabingiz"), queryset=Institution.objects.all())
     grade = forms.ModelChoiceField(label=_("Sinfingiz"), queryset=Grade.objects.all())
