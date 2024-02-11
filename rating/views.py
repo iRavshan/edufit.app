@@ -6,10 +6,12 @@ from user.models import CustomUser, Grade
 from competition.models import Attempt
 
 
-@login_required
 def Rating(request):
-    user = CustomUser.objects.get(id=request.user.id)
-    users = CustomUser.objects.filter(grade=user.grade)    
+    if request.user.is_authenticated:
+        user = CustomUser.objects.get(id=request.user.id)
+        users = CustomUser.objects.filter(grade=user.grade)    
+    else:
+        users = CustomUser.objects.filter(grade=5)    
     grades = Grade.objects.all()
 
     response_users = []

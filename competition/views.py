@@ -14,7 +14,7 @@ def Competitions(request):
     }
     return render(request, 'competition/competitions.html', context)
 
-@login_required
+
 def Get(request, competition_slug):
     competition = Competition.objects.get(slug=competition_slug)
     grades = competition.grades.all()
@@ -41,7 +41,7 @@ def Get(request, competition_slug):
         'users': users
     }
 
-    if request.user is not None:
+    if request.user.is_authenticated:
         attempt = Attempt.objects.filter(user=request.user, competition=competition, finished=True)
         questions = Question.objects.filter(competition=competition).count()
         
