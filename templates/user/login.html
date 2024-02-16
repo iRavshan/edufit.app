@@ -16,11 +16,6 @@
               <p class="text-center">{% trans "Hisobni faollashtirish" %}</p>
               <form action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
-                {% if messages %}
-                    {% for messages in message %}
-                      <p> {{message}} </p>
-                    {% endfor %}
-                {% endif %}
                 <div class="mb-3">
                   <label for="phone" class="form-label">{% trans "Telefon raqam" %}</label>
                   <input type="text" class="form-control" id="phone" name="phone"/>
