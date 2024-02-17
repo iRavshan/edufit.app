@@ -103,7 +103,8 @@ def FinishAttempt(request, attempt_id):
                 score += 1
         attempt.score = score
         attempt.save()
-    return Get(request, attempt.competition.id)
+    competition = Competition.objects.get(id=attempt.competition.id)
+    return Get(request, competition.competition_slug)
 
 
 @login_required
