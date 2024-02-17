@@ -6,9 +6,6 @@ from django.contrib.auth.decorators import login_required
 from .models import SchoolBook, Module, Lesson
 
 
-CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
-
-@cache_page(CACHE_TTL)
 @login_required
 def Schoolbooks(request):
     schoolbooks = SchoolBook.objects.filter(grade=request.user.grade.id)

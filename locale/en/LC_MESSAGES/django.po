@@ -1359,7 +1359,7 @@ msgid "Eng yuqori reyting"
 msgstr "Top rating"
 
 msgid "Siz uchun tavsiyalar"
-msgstr "Recommendations for you"
+msgstr "Suggestions for you"
 
 msgid "Tavsiya etilgan darsliklar"
 msgstr "Recommended schoolbooks"

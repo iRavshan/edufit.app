@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
@@ -63,10 +64,13 @@ def StartAttempt(request, competition_slug, subject_slug):
     response = []
     
     for question in questions:
+        options = list(Option.objects.filter(question=question))
+        random.shuffle(options)
+
         response.append({
             'id': question.id,
             'text': question.text,
-            'options': Option.objects.filter(question=question)
+            'options': options
         })
 
     context = {
@@ -104,7 +108,7 @@ def FinishAttempt(request, attempt_id):
         attempt.score = score
         attempt.save()
     competition = Competition.objects.get(id=attempt.competition.id)
-    return Get(request, competition.competition_slug)
+    return Get(request, competition.slug)
 
 
 @login_required
