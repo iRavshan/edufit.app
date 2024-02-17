@@ -63,7 +63,7 @@
                     </div>
                 {% endfor %}            
                 <div class="card w-50">
-                    <a class="btn btn-primary py-8 fs-4" href="{% url 'competition' competition.id %}">{% trans "Ortga qaytish" %}</a>
+                    <a class="btn btn-primary py-8 fs-4" href="{% url 'competition' competition.slug %}">{% trans "Ortga qaytish" %}</a>
                 </div>
                 {% endif %}
             </div>
