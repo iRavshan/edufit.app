@@ -125,7 +125,7 @@ def GetAttempt(request, competition_slug):
             'text': question.text,
         }
 
-        options = Option.objects.filter(question=question)
+        options = list(Option.objects.filter(question=question))
         random.shuffle(options)
 
         response_options = []
