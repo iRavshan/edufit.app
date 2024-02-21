@@ -2,6 +2,7 @@
 {% block title %} {{competition.title}} {% endblock %}
 {% block content %}
 {% load i18n %}
+{% load humanize %}
 <!DOCTYPE html>
 {% load static %}
   <div class="row">
@@ -169,6 +170,7 @@
               {% trans "O'quv muassasa" as header_institution %}
               {% trans "Sinf" as header_grade %}
               {% trans "Ochkolar" as header_points %}
+              {% trans "Sarflangan vaqt" as header_time %}
               {% trans "Natijalar qayd etilmagan" as NoRecordsMessage %}
               {% if users %}
               <div class="table-responsive mb-5">
@@ -190,6 +192,9 @@
                       <th class="border-bottom-0">
                         <h6 class="fw-semibold mb-0">{{header_points}}</h6>
                       </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">{{header_time}}</h6>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -209,6 +214,9 @@
                       </td>
                       <td class="border-bottom-0">
                         <h6 class="fw-semibold mb-0 fs-4">{{user.score}}</h6>
+                      </td>
+                      <td class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0 fs-4">{{user.formatted_time}}</h6>
                       </td>
                     </tr>                
                     {% endfor %}     

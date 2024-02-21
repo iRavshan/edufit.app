@@ -2,7 +2,7 @@ import random
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
-from datetime import datetime
+from datetime import datetime, timedelta
 from user.models import Grade
 from schoolbook.models import Subject
 from .models import Competition, Question, Option, Attempt
@@ -30,10 +30,12 @@ def Get(request, competition_slug):
             "last_name": attempt.user.last_name,
             "institution": attempt.user.institution,
             "grade": attempt.user.grade,
-            "score": attempt.score
+            "score": attempt.score,
+            "time": attempt.finished_at - attempt.started_at,
+            "formatted_time": chop_microseconds(attempt.finished_at - attempt.started_at)
         })
 
-    users = sorted(users, key=lambda d: d['score'], reverse=True)
+    users = sorted(users, key=lambda d: (d['score'], -d['time']), reverse=True)
 
     context = {
         'competition': competition,
@@ -151,6 +153,10 @@ def GetAttempt(request, competition_slug):
     return render(request, 'competition/getAttempt.html', context)
 
 
+
+def chop_microseconds(time_difference):
+    seconds_without_microseconds = int(time_difference.total_seconds())
+    return timedelta(seconds=seconds_without_microseconds)
 
 
         
