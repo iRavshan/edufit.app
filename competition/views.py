@@ -158,4 +158,4 @@ def GetAttempt(request, competition_slug):
 
 def chop_microseconds(time_difference):
     seconds_without_microseconds = int(time_difference.total_seconds())
-    return timedelta(seconds=seconds_without_microseconds)\
+    return timedelta(seconds=seconds_without_microseconds)
