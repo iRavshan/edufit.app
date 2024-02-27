@@ -1,4 +1,5 @@
 import random
+import openpyxl
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
@@ -6,6 +7,7 @@ from datetime import datetime, timedelta
 from user.models import Grade
 from schoolbook.models import Subject
 from .models import Competition, Question, Option, Attempt
+from user.models import CustomUser
 
 
 def Competitions(request):
@@ -156,9 +158,4 @@ def GetAttempt(request, competition_slug):
 
 def chop_microseconds(time_difference):
     seconds_without_microseconds = int(time_difference.total_seconds())
-    return timedelta(seconds=seconds_without_microseconds)
-
-
-        
-            
-
+    return timedelta(seconds=seconds_without_microseconds)\

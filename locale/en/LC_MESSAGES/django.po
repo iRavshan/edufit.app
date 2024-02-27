@@ -1467,7 +1467,7 @@ msgid "Natijalar qayd etilmagan"
 msgstr "The results are not recorded"
 
 msgid "Olimpiada allaqachon yakunlangan"
-msgstr "The olympiad is already over"
+msgstr "The olympiad has been over"
 
 msgid "Instruktorlar"
 msgstr "Instructors"
@@ -1501,3 +1501,6 @@ msgstr "daqiqa avval"
 
 msgid "year ago"
 msgstr "yil avval"
+
+msgid "Sarflangan vaqt"
+msgstr "Time spent"
