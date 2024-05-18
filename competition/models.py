@@ -52,6 +52,9 @@ class Option(models.Model):
     is_correct = models.BooleanField(default=False, null=False)
     question = models.ForeignKey(Question, null=False, on_delete=models.CASCADE)
     
+    class Meta:
+        ordering = ['question']
+
     def __str__(self):
         return self.text
 
