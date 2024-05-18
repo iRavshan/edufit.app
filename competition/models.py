@@ -32,10 +32,15 @@ class Competition(models.Model):
 
 class Question(models.Model):
     id = models.UUIDField(primary_key=True, null=False, default=uuid4, editable=False, auto_created=True)
+    QUESTION_TYPES = (
+        ('text', 'Text'),
+        ('multiple_choice', 'Multiple Choice'),
+    )
     text = RichTextField(_('text'), null=False)
     grade = models.ForeignKey(Grade, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     competition = models.ForeignKey(Competition, null=True, on_delete=models.CASCADE)
+    question_type = models.CharField(max_length=20, choices=QUESTION_TYPES, default='multiple_choice')
 
     def __str__(self):
         return self.text
@@ -49,6 +54,16 @@ class Option(models.Model):
     
     def __str__(self):
         return self.text
+
+
+class Answer(models.Model):
+    question = models.ForeignKey(Question, related_name='answers', on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    text_answer = models.TextField(blank=True, null=True)
+    choice_answer = models.ForeignKey(Option, blank=True, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Answer by {self.user.username} for {self.question.text}"
 
 
 class Attempt(models.Model):
