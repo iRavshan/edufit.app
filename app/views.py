@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from django.template import loader
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext as _
+from django.http import HttpResponseNotFound, HttpResponseServerError
 from user.models import CustomUser, Grade
 from competition.models import Competition, Attempt
 from schoolbook.models import SchoolBook
@@ -60,5 +62,18 @@ def Home(request):
     return render(request, 'home/home.html', context)
 
 
-def error_404_view(request, exception):
-    return render(request, '404.html')
+def error_404(request, exception):
+    content = loader.render_to_string('404.html', {}, request)
+    return HttpResponseNotFound(content)
+
+def error_500(request):
+    content = loader.render_to_string('404.html', {}, request)
+    return HttpResponseServerError(content)
+
+def error_403(request, exception):
+    content = loader.render_to_string('404.html', {}, request)
+    return HttpResponseServerError(content)
+
+def error_400(request, exception):
+    content = loader.render_to_string('404.html', {}, request)
+    return HttpResponseServerError(content)

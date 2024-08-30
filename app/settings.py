@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'ckeditor',
 
+    'common.apps.CommonConfig',
     'user.apps.UserConfig',
     'rating.apps.RatingConfig',
     'competition.apps.CompetitionConfig',
