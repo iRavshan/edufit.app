@@ -3,37 +3,28 @@ from django.http import HttpResponse
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import UserRegistrationForm, ChangeInfoForm
+from .forms import UserSignUpForm, ChangeInfoForm
 
-def Register(request):
-    context = {}
-    if request.method == "POST":
-        form = UserRegistrationForm(request.POST)
+
+
+def sign_up(request):
+    if request.method == 'POST':
+        form = UserSignUpForm(request.POST)
         if form.is_valid():
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            username = form.cleaned_data['username']
-            institution = form.cleaned_data['institution']
-            grade = form.cleaned_data['grade']
+            phone_number = form.cleaned_data['phone_number']
             password = form.cleaned_data['password1']
-            try:
-                instance = form.save(commit=False)
-                instance.phone = username
-                instance.save()
-                user = authenticate(request, username=username, password=password)
-                if user is not None:
-                    login(request, user)
-                    return redirect('/')
-            except:
-                context['form'] = form
-                return render(request, 'user/register.html', context)
-        else:
-            context['form'] = form
-            return render(request, 'user/register.html', context)
-    context['form'] = UserRegistrationForm()
-    return render(request, 'user/register.html', context)
+            form.save()
+            user = authenticate(request, phone_number=phone_number, password=password)
+            if user:
+                login(request, user)
+                return redirect('home')
+    else:
+        form = UserSignUpForm()
+    return render(request, 'auth/signup.html', {'form': form})
 
-def Login(request):
+
+
+def sign_in(request):
     if request.method == "POST":
         username = request.POST.get('phone')
         password = request.POST.get('password')
@@ -43,11 +34,12 @@ def Login(request):
             return redirect('/')
         messages.error(request, 'Foydalanuvchi nomi yoki parol xato')
         return redirect('login')
-    return render(request, 'user/login.html')
+    return render(request, 'user/signin.html')
+
 
 
 @login_required
-def Settings(request):
+def settings(request):
 
     context = {}
 
@@ -69,7 +61,9 @@ def Settings(request):
 
     return render(request, 'user/settings.html', context)
 
+
+
 @login_required
-def Logout(request):
+def log_out(request):
     logout(request)
-    return render(request, 'user/login.html')
+    return render(request, 'user/signin.html')

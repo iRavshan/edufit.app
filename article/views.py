@@ -7,7 +7,7 @@ def Articles(request):
     context = {
         'articles': articles
     }
-    return render(request, 'article/articles.html', context)
+    return render(request, 'article/blog.html', context)
 
 
 @login_required

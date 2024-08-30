@@ -1,0 +1,6 @@
+# robots.txt
+User-Agent: *
+Disallow: /privatestuff/
+
+User-agent: GPTBot
+Disallow: /

@@ -9,7 +9,7 @@ from competition.models import Competition, Attempt
 from schoolbook.models import SchoolBook
 
 @login_required
-def Home(request):
+def home(request):
     current_user = CustomUser.objects.get(id=request.user.id)
     users = CustomUser.objects.filter(grade=current_user.grade)
     grades = Grade.objects.all()
@@ -63,17 +63,17 @@ def Home(request):
 
 
 def error_404(request, exception):
-    content = loader.render_to_string('404.html', {}, request)
+    content = loader.render_to_string('errors/404.html', {}, request)
     return HttpResponseNotFound(content)
 
 def error_500(request):
-    content = loader.render_to_string('404.html', {}, request)
+    content = loader.render_to_string('errors/500.html', {}, request)
     return HttpResponseServerError(content)
 
 def error_403(request, exception):
-    content = loader.render_to_string('404.html', {}, request)
+    content = loader.render_to_string('errors/403.html', {}, request)
     return HttpResponseServerError(content)
 
 def error_400(request, exception):
-    content = loader.render_to_string('404.html', {}, request)
+    content = loader.render_to_string('errors/400.html', {}, request)
     return HttpResponseServerError(content)

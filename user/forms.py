@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser, Grade, Institution
 
 
-class UserRegistrationForm(UserCreationForm):
+class UserSignUpForm(UserCreationForm):
     first_name = forms.CharField(label=_("Ismingiz"), max_length=40, required=True)
     last_name = forms.CharField(label=_("Familiyangiz"), max_length=40, required=True)
     username = forms.CharField(label=_("Telefon raqam"), max_length=15, required=True)
@@ -14,7 +14,7 @@ class UserRegistrationForm(UserCreationForm):
     password2 = forms.PasswordInput()
 
     def __init__(self, *args, **kwargs):
-        super(UserRegistrationForm, self).__init__(*args, **kwargs)
+        super(UserSignUpForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs.update({
             'name': 'first_name',
             'id': 'first_name',
@@ -54,6 +54,19 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ["first_name", "last_name", "username", "institution", "grade", "password1", "password2"]
+
+
+class UserSignInForm(forms.Form):
+
+    phone_number = forms.CharField(label=_('Telefon raqam'), 
+                             required=True, 
+                             widget=forms.TextInput(attrs={'id': 'phone_number',
+                                                           'placeholder': _('Telefon raqam')})) 
+    
+    password = forms.CharField(label='Password',
+                               required=True,
+                               widget=forms.PasswordInput(attrs={'placeholder': _('Parol'),
+                                                                 'id': 'password'}))
 
 
 class ChangeInfoForm(forms.ModelForm):

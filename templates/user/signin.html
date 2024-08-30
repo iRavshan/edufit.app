@@ -1,4 +1,4 @@
-{% extends '_blank.html' %}
+{% extends '../shared/_blank.html' %}
 {% block title %} Login {% endblock %}
 {% block content %}
 {% load i18n %}
@@ -14,7 +14,7 @@
                 <img src="{% static 'images/logos/logo.png' %}" width="180" alt="">
               </a>
               <p class="text-center">{% trans "Hisobni faollashtirish" %}</p>
-              <form action="{% url 'login' %}" method="POST">
+              <form action="{% url 'signin' %}" method="POST">
                 {% csrf_token %}
                 <div class="mb-3">
                   <label for="phone" class="form-label">{% trans "Telefon raqam" %}</label>
@@ -30,7 +30,7 @@
                 <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">{% trans "Kirish" %}</button>
                 <div class="d-flex align-items-center justify-content-center">
                   <p class="fs-4 mb-0 fw-bold">{% trans "Yangimisiz?" %}</p>
-                  <a class="text-primary fw-bold ms-2" href="{% url 'register' %}">{% trans "Ro'yxatdan o'tish" %}</a>
+                  <a class="text-primary fw-bold ms-2" href="{% url 'signup' %}">{% trans "Ro'yxatdan o'tish" %}</a>
                 </div>
               </form>
             </div>
